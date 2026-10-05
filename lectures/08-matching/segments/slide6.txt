@@ -1,5 +1,0 @@
-Phần 6. Lấy danh sách cặp ghép & Minimum Vertex Cover.
-Sau maxMatching: pairU[u] = v đã ghép. Duyệt u=1..n: nếu pairU[u]!=0 → cặp (u, pairU[u]).
-Min Vertex Cover (Kőnig): BFS từ đỉnh trái CHƯA GHÉP trên đồ thị: trái→phải (cạnh CHƯA GHÉP), phải→trái (cạnh ĐÃ GHÉP).
-Đỉnh trái KHÔNG đạt được + đỉnh phải ĐẠT ĐƯỢC = Min Vertex Cover.
-Max Independent Set = Complement của Min Vertex Cover.

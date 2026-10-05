@@ -1,5 +1,0 @@
-Phần 8. Tự kiểm tra 3 câu.
-Câu 1: Andrew: ccw <= 0 pop. Nếu đổi thành < 0 thì sao? Đáp: giữ điểm thẳng hàng trên cạnh → bao lồi có điểm dư (collinear trên cạnh).
-Câu 2: Điểm (0,0),(1,0),(2,0) thẳng hàng. Bao lồi có mấy đỉnh? Đáp: 2 (đầu và cuối).
-Câu 3: Rotating calipers: biến j chỉ tăng, không giảm. Tổng số bước j tăng bao nhiêu? Đáp: ≤ 2n (mỗi bước i tăng 1, j tăng tối đa n).
-Hẹn bài 11: Manacher và Aho-Corasick xâu ký tự.

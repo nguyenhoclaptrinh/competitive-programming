@@ -1,4 +1,0 @@
-Phần 3. Bí mật nằm ở phép p và trừ p. Đây là cách lấy ra bit 1 thấp nhất, gọi là L S B. Nút p quản lý đúng p và trừ p ô.
-Ví dụ, p bằng 6, nhị phân 0 1 1 0, thì p và trừ p bằng 2. Nút 6 quản lý 2 ô, là ô 5 và ô 6.
-Còn p bằng 8, nhị phân 1 0 0 0, thì p và trừ p bằng 8. Nút 8 quản lý cả 8 ô từ 1 đến 8.
-Quy tắc chung: nút p quản lý đoạn từ p trừ L S B, đến p. Càng nhiều số 0 ở cuối nhị phân, khối càng dài.

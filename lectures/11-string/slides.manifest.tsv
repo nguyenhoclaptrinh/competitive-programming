@@ -1,9 +1,0 @@
-slide	duration	title	sub	desc	type	content
-1	30.00	Bài 10: Manacher O(N) + Aho-Corasick đa mẫu	1/8 · chèn # thành lẻ, P[i]=bán kính	abba tâm # P=4		
-2	30.00	Đối xứng C,R: kế thừa min(R-i,P[i']) rồi mở rộng	2/8 · R đơn điệu nên O(N)	Mở slides.html Slide 2, bấm Next		
-3	30.00	Code manacher + ứng dụng palindrome	3/8 · while mở rộng + cập nhật C,R	Dài nhất, đếm, substring		while mở rộng // C,R đơn điệu // O(N)
-4	30.00	Aho: Trie + fail + DFA, duyệt abc match 2	4/8 · fail(ab)=node b	Mở slides.html Slide 4, bấm Next		
-5	30.00	Code build BFS + search O(text+match)	5/8 · exitLink chuỗi output	Tóm tắt 30 giây cuối slide		BFS fail // DFA hoàn thiện // exitLink
-6	30.00	Bẫy: biên ^$, alphabet, exitLink O(k)	6/8 · p[i] có thể 0	3 bẫy sống còn		lính canh // alphabet đúng // exit O(k)
-7	30.00	Ứng dụng: hash, Aho trên cây, đa alphabet	7/8 · DFS giữ state	3 mở rộng		hash O1 // cây DFS // nén char
-8	30.00	Quiz: P=3; match @1,@2; fail=b	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: Số học		P3 // @1@2 // fail b

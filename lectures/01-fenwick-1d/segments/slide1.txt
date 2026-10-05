@@ -1,3 +1,0 @@
-Chào mừng bạn đến với bài 1: Fenwick Tree một chiều, còn gọi là Binary Indexed Tree, viết tắt là B I T.
-Phần 1. Bài toán thực tế. Bạn có một mảng a, một trăm nghìn phần tử. Bạn cần hai việc, lặp đi lặp lại hàng trăm nghìn lần: cộng một giá trị v vào vị trí p, và tính tổng đoạn từ l đến r.
-Nếu duyệt tay mỗi lần, bạn tốn O n, và chắc chắn quá thời gian, tức là T L E. Fenwick Tree làm cả hai việc trong O log n, chỉ với một mảng tree, và hai vòng lặp bit.

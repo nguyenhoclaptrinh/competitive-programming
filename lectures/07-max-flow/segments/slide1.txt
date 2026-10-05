@@ -1,6 +1,0 @@
-Phần 1. Dinic Max Flow — Mạng luồng cực đại.
-Đồ thị có hướng, nguồn s, hố t. Mỗi cạnh có capacity. Tìm luồng max từ s đến t.
-Dinic: 2 pha lặp. BFS dựng Level Graph (level[u] = khoảng cách từ s chỉ dùng cạnh còn dư).
-DFS tìm Blocking Flow trên Level Graph: chỉ đi cạnh level[v] = level[u]+1.
-Con trỏ ptr[u] cực quan trọng: lưu cạnh đã duyệt, tránh duyệt lại → O(V^2 E).
-Ví dụ: s=1, t=4. 1→2(10), 1→3(10), 2→3(2), 2→4(8), 3→4(9). Max flow = 17 (khớp min cut {1,2,3}|{4} = 8+9).

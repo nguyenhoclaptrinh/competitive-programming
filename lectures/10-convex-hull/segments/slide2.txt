@@ -1,7 +1,0 @@
-Phần 2. Ví dụ số vỏ dưới step-by-step.
-Điểm đã sort: (0,0),(1,-1),(1,1),(2,0),(2,2),(3,1).
-Bắt đầu h=[(0,0),(1,-1)]. Thêm (1,1): ccw bằng 2 dương → GIỮ. h có 3 điểm.
-Thêm (2,0): ccw của (1,-1),(1,1),(2,0) bằng -2 → POP (1,1). ccw của (0,0),(1,-1),(2,0) bằng 2 → GIỮ.
-Thêm (2,2): ccw của (1,-1),(2,0),(2,2) bằng 2 → GIỮ.
-Thêm (3,1): ccw của (2,0),(2,2),(3,1) bằng -2 → POP (2,2). ccw của (1,-1),(2,0),(3,1) bằng 0 (thẳng hàng!) → POP (2,0). ccw của (0,0),(1,-1),(3,1) bằng 4 → GIỮ.
-Vỏ dưới xong: (0,0),(1,-1),(3,1). Chú ý (2,0) nằm trên cạnh nên bị loại theo luật bé hơn bằng 0.

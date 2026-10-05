@@ -1,6 +1,0 @@
-Phần 4. Truy vấn tổng tiền tố, ký hiệu query p. Muốn tính tổng từ 1 đến p, ta cộng các khối rời rạc phủ kín đoạn đó.
-Mỗi bước, cộng tree tại p, rồi xóa bit 1 cuối cùng, bằng lệnh p trừ bằng p và trừ p.
-Ví dụ p bằng 7, nhị phân 1 1 1. Bước 1, cộng tree 7 bằng 2, tức đoạn 7 đến 7, p giảm còn 6.
-Bước 2, cộng tree 6 bằng 14, tức đoạn 5 đến 6, p giảm còn 4.
-Bước 3, cộng tree 4 bằng 9, tức đoạn 1 đến 4, p giảm về 0 và dừng. Tổng bằng 25.
-Ba bước, đúng bằng số bit 1, tối đa log n. Muốn tổng đoạn l đến r, chỉ cần query r trừ query l trừ 1. Ví dụ tổng từ 2 đến 7 bằng 25 trừ 3 bằng 22.

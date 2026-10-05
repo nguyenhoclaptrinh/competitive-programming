@@ -1,9 +1,0 @@
-slide	duration	title	sub	desc	type	content
-1	30.00	Bài 7: Hopcroft-Karp — ghép 2 phía O(E√V)	1/8 · đường mở đảo ngược +1 cặp	Kuhn O(VE) vs HK theo lớp		
-2	30.00	BFS phân tầng từ đỉnh chưa ghép đến NIL	2/8 · dist[0]=1 là có đường mở	Mở slides.html Slide 2, bấm Next		
-3	30.00	DFS ghép 1-4, 2-5, 3-6 theo đúng tầng	3/8 · dist[pairV]==dist[u]+1	Mở slides.html Slide 3, bấm Next		
-4	30.00	Ví dụ 4x4 matching hoàn hảo 4 cặp	4/8 · BFS 1 lớp rồi ghép hết	Mở slides.html Slide 4, bấm Next		
-5	30.00	Code bfs+dfs+maxMatching	5/8 · NIL=0, INF, 1-based	Tóm tắt 30 giây cuối slide		bfs tầng // dfs đúng tầng // lặp hết đường
-6	30.00	Min Vertex Cover Kőnig + độc lập cực đại	6/8 · chưa ghép đi, đã ghép về	Cover=trái không tới+phải tới		trái-phải chưa ghép // phải-trái đã ghép // bù là độc lập
-7	30.00	Bẫy mảng, INF, Dinic tương đương	7/8 · pairU n+1 pairV m+1	HK nhẹ hơn Dinic		mảng đủ cỡ // INF 1e9 // DFS an toàn
-8	30.00	Quiz: NIL, đúng tầng, Cover	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: Hình học		NIL tồn tại // đúng tầng // Cover Kőnig

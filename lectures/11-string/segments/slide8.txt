@@ -1,5 +1,0 @@
-Phần 8. Tự kiểm tra 3 câu.
-Câu 1: Manacher: s="aba". t="^#a#b#a#$". P tâm tại 'b' (i=4) = ? Đáp: 3 (bán kính trên t, độ dài palindrome=3).
-Câu 2: Aho: pattern ["ab","bc"]. Text "abc". Output: "ab" tại vị trí 1, "bc" tại vị trí 2.
-Câu 3: Aho: failure link của node "ab" khi thêm "b" là node "b" (hậu tố dài nhất là tiền tố).
-Hẹn bài 12: Số học — nCr modulo, CRT, Pollard Rho.

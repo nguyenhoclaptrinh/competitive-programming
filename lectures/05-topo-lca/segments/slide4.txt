@@ -1,8 +1,0 @@
-Phần 4. 2-SAT ví dụ số: (x1 hoặc x2) và (không x1 hoặc x2) và (x1 hoặc không x2).
-4 nút: 0=x1, 1=không x1, 2=x2, 3=không x2.
-5 cạnh suy diễn: 1→2, 3→0, 0→2, 1→3, 2→0.
-Tarjan tìm SCC: {0,2} dính nhau qua chu trình 0→2→0. {1} riêng. {3} riêng.
-x1 dùng nút 0,1 khác SCC → thỏa. x2 dùng nút 2,3 khác SCC → thỏa. Hệ CÓ nghiệm.
-Gán theo topo ngược: x1=true, x2=true.
-Kiểm tra: (T hoặc T) và (F hoặc T) và (T hoặc F) = T và T và T = T. Đúng!
-Suy ra quy tắc: (x1 hoặc x2) và (không x1 hoặc x2) ép x2=true; mệnh đề 3 ép tiếp x1=true.

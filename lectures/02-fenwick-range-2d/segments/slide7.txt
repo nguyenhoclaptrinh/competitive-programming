@@ -1,4 +1,0 @@
-Phần 7. Code chuẩn C++20 cho RangeBIT và BIT2D.
-RangeFenwick: b1, b2 kiểu Fenwick 1D. addRange 4 lệnh add. queryPrefix công thức (p+1)*b1 - b2.
-Fenwick2D: vector<vector<long long>> tree. add hai vòng lặp lồng. query hai vòng lặp lồng.
-queryRect 4 gọi query. Mọi sum dùng long long. Chỉ số 1-based bắt buộc.

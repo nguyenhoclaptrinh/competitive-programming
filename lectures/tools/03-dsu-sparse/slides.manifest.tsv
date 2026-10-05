@@ -1,9 +1,0 @@
-slide	duration	title	sub	desc	type	content
-1	30.00	Bài 3: DSU + Sparse Table — gộp tập O(1), min đoạn O(1)	1/8 · unite/same · parentOrSize âm/dương	Ví dụ n=8: unite(1,2),(2,3),(5,6)		
-2	30.00	unite step-by-step: p[1]=-2 rồi -3, tập {1,2,3}	2/8 · Union by Size · find nén đường	Mở slides.html Slide 2, bấm Next		
-3	30.00	Path Compression + Union by Size = O(alpha n)	3/8 · find vừa đi vừa nén · cao cây log n	Thiếu 1 tối ưu là TLE		find nén đường // gộp cây nhỏ vào lớn // O alpha n
-4	30.00	Sparse: st[j][i] min đoạn dài 2^j, build chẻ đôi	4/8 · a 0-based · st[1] len2, st[2] len4	Bảng st đầy đủ trong slide		st[j][i] chẻ đôi // build O n log n // query O 1
-5	30.00	Query đè đoạn: query(2,7)=min(st[2][2],st[2][4])=1	5/8 · len=6,k=2 · đè nhau không sao với min	Mở slides.html Slide 5, bấm Next		
-6	30.00	Code: DSU 15 dòng + Sparse 20 dòng, cấm sum	6/8 · idempotent mới dùng Sparse	sum đè bị cộng 2 lần		DSU: find+unite // Sparse: build+query // cấm sum
-7	30.00	Bẫy: DSU 1-based, Sparse 0-based, clz(0) UB	7/8 · đệ quy log n an toàn · guard build	Tóm tắt 30 giây cuối slide		DSU +1 nếu 0-based // Sparse len≥1 // guard build
-8	30.00	Quiz: p[1]=-4; st[2][2]=1; sum cấm vì đè	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: đường đi ngắn nhất		p1=-4 // st22=1 // sum không idempotent

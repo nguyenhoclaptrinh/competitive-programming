@@ -1,7 +1,0 @@
-Phần 2. Chinese Remainder Theorem — Tổng quát gcd(m1,m2) > 1.
-Hệ: x ≡ r1 (mod m1), x ≡ r2 (mod m2).
-Viết: x = m1*p + r1 = m2*q + r2 → m1*p - m2*q = r2 - r1.
-g = gcd(m1,m2). Điều kiện CÓ NGHIỆM: (r2-r1) % g == 0.
-Dùng Extended GCD tìm x,y: m1*x + m2*y = g.
-p0 = (r2-r1)/g * x. Mod mới: lcm = m1/g*m2. Nghiệm: rem = (r1 + p0*m1) % lcm.
-Gộp lặp cho nhiều phương trình.

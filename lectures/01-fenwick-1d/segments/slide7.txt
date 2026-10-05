@@ -1,3 +1,0 @@
-Phần 7. Code chuẩn. Hàm add đi lên, mỗi bước cộng thêm p và trừ p. Hàm query đi xuống, mỗi bước trừ đi p và trừ p.
-Hàm tính tổng đoạn bằng query r trừ query l trừ 1. Hãy nhớ ba điểm.
-Một, mọi biến tổng dùng long long. Hai, add đi lên dấu cộng, query đi xuống dấu trừ. Ba, độ phức tạp log n, bộ nhớ O n.

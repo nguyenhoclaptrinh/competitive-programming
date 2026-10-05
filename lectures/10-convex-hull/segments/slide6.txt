@@ -1,6 +1,0 @@
-Phần 6. Bẫy ICPC bao lồi.
-Điểm trùng: BẮT BUỘC unique sau sort. Không thì ccw=0 → pop sai.
-Tất cả điểm thẳng hàng: ccw=0 → chỉ giữ 2 đỉnh đầu cuối. Code đúng: <= 0 pop.
-n=1,2: trả về pts (resize k-1 sai nếu k<2 → guard n<=2).
-ccw dùng long long. Tọa độ 1e9 → cross 1e18.
-Sắp xếp: operator< so sánh x rồi y. Không dùng double.

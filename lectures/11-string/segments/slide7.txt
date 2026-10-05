@@ -1,5 +1,0 @@
-Phần 7. Ứng dụng nâng cao: Manacher + Hash, Aho trên cây.
-Manacher + Hash: Kiểm tra palindrome substring O(1) sau O(n) tiền xử lý.
-Aho trên cây: Trie pattern, build fail, duyệt cây DFS trạng thái Aho — tìm pattern trên đường đi.
-Aho nhiều alphabet: nén ký tự (map char→id) hoặc dùng unordered_map<int,int> next.
-Bẫy: Aho exitLink duyệt lặp có thể O(k) mỗi match (k=số pattern trùng hậu tố). Tổng O(|text| + matches).

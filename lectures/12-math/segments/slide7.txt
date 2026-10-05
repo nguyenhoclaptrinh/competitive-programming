@@ -1,6 +1,0 @@
-Phần 7. Ứng dụng: Số lượng ước, Euler totient, số Fibonacci modulo.
-Từ factorize(n) = {p1^e1, p2^e2...}:
-Số ước: (e1+1)*(e2+1)*...
-Euler phi: n * ∏(1-1/pi) = ∏ pi^(ei-1)*(pi-1).
-Fibonacci modulo: Ma trận [[1,1],[1,0]]^n. Hoặc fast doubling O(log n).
-Pollard Rho dùng cho: phân tích N lớn trong bài toán số học, tìm nghiệm đồng dư modulo hợp số.

@@ -1,7 +1,0 @@
-Phần 1. Bao lồi Andrew Monotone Chain — Tại sao không Graham Scan?
-Graham Scan: sắp xếp theo góc cực (polar angle) → dùng double/atan2 → sai số, chậm.
-Andrew: Chỉ sắp xếp theo (x,y) Descartes. O(n log n) sort + O(n) scan.
-Ý tưởng: Dựng vỏ dưới (left→right) và vỏ trên (right→left). Ghép = bao lồi.
-Vỏ dưới: for p in pts sorted: while k≥2 và ccw(h[k-2],h[k-1],p) ≤ 0: k--. h[k++]=p.
-Vỏ trên: for p in pts reverse (bỏ đầu/cuối trùng): while k≥t và ccw(h[k-2],h[k-1],p) ≤ 0: k--. h[k++]=p.
-Kết quả resize(k-1) (điểm đầu trùng cuối).

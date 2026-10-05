@@ -1,7 +1,0 @@
-Phần 4. Floyd-Warshall — Cặp nguồn-đích mọi cặp.
-dist[i][j] = đường đi ngắn nhất i→j chỉ qua trung gian {1..k}.
-Vòng lặp k NGOÀI CÙNG bắt buộc! k=1..n, i=1..n, j=1..n.
-dist[i][j] = min(dist[i][j], dist[i][k] + dist[k][j]).
-Phát hiện chu trình âm: dist[i][i] < 0 sau khi chạy xong.
-Độ phức tạp O n^3. n≤500 thì OK. Khởi tạo: dist[i][i]=0, cạnh i→j = w, khác = INF.
-Ví dụ n=4, ma trận kề. Bước k=1: cập nhật qua đỉnh 1. Bước k=2: qua đỉnh 2...

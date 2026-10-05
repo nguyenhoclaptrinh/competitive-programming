@@ -1,4 +1,0 @@
-Phần 1. Bài toán mở rộng. Bài trước: add điểm, query đoạn. Bài này: add đoạn [l, r] + query đoạn [l, r] — cả hai O log n.
-Mảng a[1..8] = 3 1 4 1 5 9 2 6. Cần add 10 vào đoạn [2, 5] rồi query tổng [3, 7].
-Nếu duyệt tay mỗi add đoạn tốn O n, 10^5 thao tác chắc chắn quá thời gian.
-Fenwick thường chỉ làm add điểm. Cần kỹ thuật mới: mảng sai phân D và 2 cây B I T.

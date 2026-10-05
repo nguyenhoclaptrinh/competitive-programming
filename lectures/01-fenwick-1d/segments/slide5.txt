@@ -1,5 +1,0 @@
-Phần 5. Cập nhật điểm, ký hiệu add p v. Khi ô p tăng thêm v, mọi nút cha chứa p đều phải tăng theo.
-Ta đi ngược lên, bằng lệnh p cộng bằng p và trừ p. Ví dụ n bằng 8, add 5 thêm 10.
-Từ 5, nhị phân 1 0 1, L S B bằng 1, nhảy lên 6, tree 5 tăng từ 5 lên 15.
-Từ 6, L S B bằng 2, nhảy lên 8, tree 6 tăng từ 14 lên 24.
-Từ 8, L S B bằng 8, nhảy lên 16, vượt quá n nên dừng, tree 8 tăng từ 31 lên 41. Chỉ 3 nút bị chạm, cũng là log n.

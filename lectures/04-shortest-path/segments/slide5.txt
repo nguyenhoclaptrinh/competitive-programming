@@ -1,7 +1,0 @@
-Phần 5. So sánh 4 thuật toán & Khi nào dùng cái nào.
-DAG + 1 nguồn: Topo + DP O n+m.
-Trọng số không âm: Dijkstra O m log n.
-Trọng số 0/1: 0-1 BFS O n+m.
-Trọng số âm (1 nguồn): Bellman-Ford O n*m (phát hiện chu trình âm).
-Mọi cặp nguồn-đích: Floyd-Warshall O n^3 (n≤500).
-Bẫy: Floyd k trong vòng lặp → sai. Bellman quên max(-INF) → underflow. 0-1 BFS dùng priority_queue → chậm.

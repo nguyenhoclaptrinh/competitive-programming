@@ -1,6 +1,0 @@
-Phần 4. Pollard Rho — Phân tích thừa số O(N mũ 1 phần 4).
-N tới 10 mũ 18. Thử chia đến căn N = 10 mũ 9 → quá giờ.
-Pollard Rho: dãy x mới = (x cũ bình phương + c) mod N. Chu trình modulo ước p xuất hiện sau O căn p bước (nghịch lý ngày sinh).
-Ví dụ N=91=7 nhân 13, x=2, y=2, c=1. Vòng 1: y 2→5, g=gcd(3,91)=1. y 5→26, g=gcd(24,91)=1. Brent cho x nhảy lên 26.
-Vòng 2: y 26→40, g=gcd(14,91)=7 → bắt được ước 7! Đệ quy factorize 7 và 13.
-Miller-Rabin 64-bit xác định: 12 cơ số đầu — đúng 100% với mọi N dưới 2 mũ 64.

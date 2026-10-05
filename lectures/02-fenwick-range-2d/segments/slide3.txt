@@ -1,5 +1,0 @@
-Phần 3. Cập nhật đoạn [l, r] cộng v.
-Khi cộng v vào a[l..r], mảng sai phân D thay đổi: D[l] += v, D[r+1] -= v.
-b1: add(l, v), add(r+1, -v). b2: add(l, v*l), add(r+1, -v*(r+1)).
-Ví dụ add [2,5] v=10: b1 add(2,10) add(6,-10). b2 add(2,20) add(6,-60).
-Chỉ 4 lệnh add điểm trên 2 cây B I T — vẫn O log n.

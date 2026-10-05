@@ -1,8 +1,0 @@
-Phần 5. Code C++20 Dinic chuẩn.
-struct Edge {int to; ll cap, flow; int rev;};
-Dinic(n,s,t): adj(n+1), level(n+1), ptr(n+1).
-addEdge(u,v,cap): adj[u].push({v,cap,0,(int)adj[v].size()}); adj[v].push({u,0,0,(int)adj[u].size()-1}).
-bfs(): fill level -1. queue. level[s]=0. while q: u=pop, for e: if e.cap>e.flow && level[e.to]==-1: level[e.to]=level[u]+1; push.
-dfs(u,pushed): if pushed==0||u==t return pushed; for(int&cid=ptr[u]; cid<adj[u].size(); ++cid)...
-maxFlow(): flow=0; while(bfs()): fill ptr 0; while(p=dfs(s,INF)) flow+=p; return flow.
-Mọi cap/flow dùng long long. INF = 1e18.

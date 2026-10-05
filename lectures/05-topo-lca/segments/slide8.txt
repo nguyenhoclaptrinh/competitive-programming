@@ -1,5 +1,0 @@
-Phần 8. Tự kiểm tra 3 câu.
-Câu 1: LCA: cây 1-2-3-4-5 (đường thẳng). LCA(4,5) = ? Đáp: 4.
-Câu 2: 2-SAT: (x1 ∨ x2) ∧ (¬x1 ∨ ¬x2). Có nghiệm? Đáp: có, x1=true, x2=false (hoặc ngược).
-Câu 3: 2-SAT vô nghiệm khi nào? Đáp: xi và ¬xi cùng SCC → scc[2*i] == scc[2*i+1].
-Hẹn bài 7: Dinic Max Flow.

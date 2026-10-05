@@ -1,4 +1,0 @@
-Phần 6. Bẫy sống còn trong phòng thi I C P C. Bẫy một, bắt buộc dùng chỉ số bắt đầu từ 1.
-Nếu bạn gọi add 0, với vòng lặp cộng bằng, thì 0 và trừ 0 bằng 0, lệnh p cộng bằng 0 mãi mãi đứng yên tại 0. Vòng lặp vô tận, treo máy, quá thời gian.
-Nếu đề cho mảng đếm từ 0, hãy cộng 1 vào mọi chỉ số trước khi đưa vào Fenwick. Lưu ý, query 0 thì an toàn, vì vòng lặp thoát ngay khi p không còn lớn hơn 0, và trả về 0.
-Bẫy hai, tràn số. Tổng một trăm nghìn số, mỗi số tới một tỉ, vượt xa số nguyên 32 bit. Mọi mảng tree và biến tổng phải dùng số nguyên 64 bit, tức là long long.

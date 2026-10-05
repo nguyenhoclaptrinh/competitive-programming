@@ -1,4 +1,0 @@
-Phần 8. Tự kiểm tra. Câu 1, add 3 thêm 7 chạm những nút nào? Đáp án, 3, rồi 4, rồi 8.
-Câu 2, query 5 chạm những nút nào? Đáp án, 5 rồi 4.
-Câu 3, vì sao query 0 an toàn mà add 0 lại treo? Vì query thoát ngay ở điều kiện p lớn hơn 0, còn add kẹt ở p cộng bằng 0.
-Hẹn gặp bạn ở bài tiếp theo, Fenwick range update, với mảng hiệu và hai cây B I T.

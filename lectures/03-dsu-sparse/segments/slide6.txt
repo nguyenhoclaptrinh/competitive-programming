@@ -1,5 +1,0 @@
-Phần 6. Code chuẩn C++20 DSU + Sparse Table.
-DSU: mảng parentOrSize, find đệ quy nén đường, unite Union by Size.
-SparseTable: vector<vector<int>> st. build O n log n. query O 1 dùng 31 trừ builtin c l z.
-Cảnh báo: Sparse Table chỉ dùng cho phép toán idempotent như min, max, gcd — không dùng cho sum.
-C++: LOG = 31 trừ builtin c l z của n cộng 1. Vòng lặp build: i cộng một dịch trái j nhỏ hơn bằng n.

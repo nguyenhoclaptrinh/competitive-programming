@@ -1,6 +1,0 @@
-Phần 1. Hình học — Điểm, Vector, Tích có hướng CCW.
-Điểm Point {ll x,y}. Vector = hiệu 2 điểm. Tích vô hướng: a·b = x1*x2 + y1*y2 = |a||b|cosθ.
-Tích có hướng (cross): a×b = x1*y2 - x2*y1 = |a||b|sinθ.
-CCW(a,b,c) = (b-a)×(c-a). >0: rẽ trái (ngược kim đồng hồ). <0: rẽ phải. =0: thẳng hàng.
-Ví dụ: a(0,0), b(1,0), c(0,1) → CCW = 1 > 0 (trái).
-Mọi tính toán dùng long long. Tọa độ ≤ 1e9 → cross ≤ 1e18 (vừa ll).

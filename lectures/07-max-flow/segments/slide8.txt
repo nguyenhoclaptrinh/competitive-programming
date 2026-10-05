@@ -1,5 +1,0 @@
-Phần 8. Tự kiểm tra 3 câu.
-Câu 1: s→a(5), a→b(3), b→t(4), s→b(2), a→t(2). Max flow = ? Đáp: 6 (3 qua a→b→t, 2 qua a→t, 1 qua s→b→t; min cut {s,a,b}|{t} = 4+2).
-Câu 2: Vì sao ptr[u] phải là tham chiếu? Đáp: lưu vị trí cạnh đã duyệt, lần sau bỏ qua cạnh bão hòa. Không có → TLE.
-Câu 3: Min cut tìm như nào? Đáp: BFS đồ thị thặng dư từ s, cạnh S→T ban đầu là min cut.
-Hẹn bài 8: Hopcroft-Karp Bipartite Matching.

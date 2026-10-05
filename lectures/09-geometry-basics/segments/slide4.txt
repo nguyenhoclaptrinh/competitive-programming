@@ -1,6 +1,0 @@
-Phần 4. Ví dụ số: Giao đoạn & Điểm trong đa giác.
-Đoạn AB: (0,0)-(4,4). CD: (0,4)-(4,0).
-ccw A B C = 16 dương, ccw A B D = -16 âm → C D hai phía đường AB.
-ccw C D A = -16 âm, ccw C D B = 16 dương → A B hai phía đường CD. Kết luận GIAO tại (2,2).
-Đa giác vuông: (0,0),(4,0),(4,4),(0,4). P(2,2): tia ngang giao cạnh phải đúng 1 lần → LẺ → TRONG.
-P(5,2): tia không giao cạnh nào → 0 lần CHẴN → NGOÀI. P(4,2): nằm trên cạnh phải → BIÊN.

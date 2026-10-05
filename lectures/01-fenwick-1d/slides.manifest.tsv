@@ -1,9 +1,0 @@
-slide	duration	title	sub	desc	type	content
-1	36.50	Bài 1: Fenwick Tree 1D — Tổng động O(log N)	1/8 · Vì sao mảng thường bị TLE? n=10⁵, q=10⁵	Ví dụ xuyên suốt bài: a=[3,1,4,1,5,9,2,6] · add(p,v) + sum(l,r)	array	
-2	35.11	So sánh: duyệt tay O(n) · prefix O(n) · Fenwick O(log n)	2/8 · Fenwick lưu khối dài 1,2,4,8 như tờ tiền	Ghép vài khối là ra tổng — cập nhật chỉ sửa vài khối		Duyệt tay: cộng O(1) nhưng tổng O(n) nên quá giờ // Prefix: tổng O(1) nhưng cộng O(n) // Fenwick: cả hai O(log n)
-3	38.57	Bí mật LSB: p & -p — nút p quản lý (p-LSB, p]	3/8 · p=6 (0110)→[5,6] · p=4 (0100)→[1,4] · p=8→[1,8]	Càng nhiều số 0 cuối nhị phân → khối càng dài		tree[p] ôm đoạn (p − LSB, p] // p=6 (0110): LSB=2 nên ôm [5,6] // p=4 (0100): LSB=4 nên ôm [1,4]
-4	53.11	Truy vấn query(7): 7→6→4→0 = 2+14+9 = 25	4/8 · Đi xuống: p -= p&-p · sum(l,r)=query(r)-query(l-1)	Mở slides.html Slide 4, bấm Next từng bước	array	
-5	41.93	Cập nhật add(5,10): 5→6→8, tree 5,6,8 +=10	5/8 · Đi lên: p += p&-p · Chỉ 3 nút bị chạm	Mở slides.html Slide 5, bấm Next từng bước	array	
-6	45.96	Bẫy sống còn: bắt buộc chỉ số 1-based!	6/8 · add(0) → p+=0 → lặp vô tận → treo máy	Đề 0-based → cộng 1 mọi index: add(i+1,v) · mọi sum dùng long long		add(0,v): p += 0 nên kẹt vô tận // Đề 0-based thì gọi add(i+1, v) // query(0) an toàn vì thoát ngay
-7	29.40	Code chuẩn C++20: add đi lên, query đi xuống	7/8 · Mọi sum dùng long long · O(log N), nhớ O(N)	Tóm tắt 30 giây ở cuối slide 7 trong slides.html		void add(p,v){ for(;p<=n;p+=p&-p) tree[p]+=v; } // long long query(p){ for(;p>0;p-=p&-p) s+=tree[p]; } // range(l,r) = query(r) − query(l−1)
-8	33.46	Tự kiểm tra + bài tập: nghịch thế, K-th one	8/8 · add(3,7) chạm 3,4,8 · query(5) chạm 5,4	Tiếp theo: Range Update với 2 cây BIT		add(3,7) chạm 3,4,8 // query(5) chạm 5,4 // query(0) an toàn, add(0) treo máy

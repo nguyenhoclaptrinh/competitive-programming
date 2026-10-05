@@ -1,7 +1,0 @@
-Phần 3. DFS tăng luồng trên đường mở ngắn nhất.
-DFS(u): nếu u!=0: duyệt v ∈ adj[u]: nếu dist[pairV[v]] == dist[u]+1:
-  nếu DFS(pairV[v]): pairV[v]=u; pairU[u]=v; return true.
-dist[u]=INF; return false.
-Trường hợp cơ sở: u==0 return true (đã đến NIL).
-Chạy: while(bfs()) for u=1..n if pairU[u]==0 && dfs(u) matching++.
-Ví dụ: sau BFS, DFS từ 1 tìm đường 1-4-NIL, ghép 1-4. Tiếp 2 tìm 2-5-NIL, ghép 2-5. 3 tìm 3-6-NIL, ghép 3-6. Matching=3.

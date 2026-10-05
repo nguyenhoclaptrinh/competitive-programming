@@ -1,6 +1,0 @@
-Phần 7. Bẫy ICPC.
-ptr[u] BẮT BUỘC dùng tham chiếu int&cid. Thiếu → TLE.
-BFS level graph: CHỈ xét cạnh e.cap > e.flow. Cạnh ngược (rev) có cap=0 ban đầu, flow âm khi đẩy ngược → cap>flow đúng.
-DFS đệ quy: depth ≤ V. V=3e5 đường thẳng → Stack Overflow! GIẢI PHÁP: viết DFS lặp (stack tay) HOẶC dùng BFS blocking flow (phức tạp hơn). Thực tế ICPC V≤1e4 thường đệ quy OK. Nếu V lớn → dùng ISAP hoặc HLPP.
-Capacity 0: addEdge(u,v,0) hợp lệ. Multi-edge: addEdge gọi nhiều lần.
-INF = 1e18, không dùng 1e9 (tràn khi cộng flow).
