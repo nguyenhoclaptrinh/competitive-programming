@@ -1,0 +1,5 @@
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: nCr(10,3) mod 1e9+7 = ? Đáp: 120.
+Câu 2: CRT: x đồng dư 2 mod 4, x đồng dư 3 mod 6. g=gcd(4,6)=2. r2-r1=1. 1%2=1 khác 0 → VÔ NGHIỆM.
+Câu 3: Pollard Rho N=1000000007 (1e9+7, nguyên tố). isPrime64 trả về? Đáp: true (Miller-Rabin 12 cơ số xác định).
+Kết thúc 12 bài giảng ICPC Handbook.

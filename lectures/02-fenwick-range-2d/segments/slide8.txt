@@ -1,0 +1,5 @@
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: RangeBIT n=8, addRange(2,5,10). b1 add nào? Đáp: b1.add(2,10), b1.add(6,-10).
+Câu 2: BIT2D 4x4, add(2,2,5) chạm những ô nào? Đáp: (2,2), (2,4), (4,2), (4,4).
+Câu 3: queryRect(2,2,3,3) dùng bù trừ 4 góc nào? Đáp: Q(3,3)-Q(1,3)-Q(3,1)+Q(1,1).
+Hẹn bài 3: D S U nén đường đi và Sparse Table R M Q O 1.

@@ -1,0 +1,9 @@
+slide	duration	title	sub	desc	type	content
+1	30.00	Bài 4: Đường đi ngắn nhất — Topo, 0-1 BFS, Bellman, Floyd	1/8 · Topo Kahn: indeg 0 vào queue, bóc dần	Ví dụ 1→2,1→3,2→4,3→4		
+2	30.00	0-1 BFS: w0 đẩy đầu, w1 đẩy cuối deque	2/8 · O(n+m) thay Dijkstra O(m log n)	Mở slides.html Slide 2, bấm Next		
+3	30.00	Bellman-Ford: nới lỏng n-1 vòng, vòng n bắt chu trình âm	3/8 · ví dụ chu trình tổng -2	Mở slides.html Slide 3, bấm Next		relax n-1 vòng // vòng n còn nới → âm // dừng sớm
+4	30.00	Floyd: k NGOÀI CÙNG, dist[1][3]=3 qua đỉnh 2	4/8 · 1→2(1),2→3(2),1→3(100)	Mở slides.html Slide 4, bấm Next		
+5	30.00	Bảng chọn thuật toán 10 giây theo tình huống	5/8 · DAG/Dijkstra/01/Bellman/Floyd	Nhớ bảng này đi thi		DAG→Topo // 0-1→deque // âm→Bellman // all→Floyd
+6	30.00	Code 4 thuật toán: queue, deque, relax, k-i-j	6/8 · long long hết, INF 1e18	Tóm tắt 30 giây cuối slide		Topo queue // deque 0-1 // relax n-1 // k ngoài cùng
+7	30.00	Bẫy: trọng số 2, underflow, Floyd 500^3, long long	7/8 · kiểm tra đề kỹ	0-1 BFS sai nếu có w=2		w=2 là sai // max -INF // mảng tĩnh O2
+8	30.00	Quiz: chu trình topo rỗng; dist=1; Floyd=3	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: LCA + 2-SAT		topo rỗng // dist3=1 // Floyd13=3

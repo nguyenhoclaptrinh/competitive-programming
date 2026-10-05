@@ -1,0 +1,9 @@
+slide	duration	title	sub	desc	type	content
+1	30.00	Bài 5: LCA Binary Lifting + 2-SAT mệnh đề logic	1/8 · BFS thay DFS đệ quy, bảng up[j][u]	n=3e5 đường thẳng gây Stack Overflow		
+2	30.00	LCA(4,7)=1: j=1 không nhảy, j=0 nhảy về 2,3	2/8 · cân depth rồi nhảy lớn về nhỏ	Mở slides.html Slide 2, bấm Next		
+3	30.00	distance=depth[u]+depth[v]-2depth[lca], kiểm tra tổ tiên	3/8 · distance(4,7)=4 · lca==u là tổ tiên	Ứng dụng jump pointer, trọng số		dist=u+v-2lca // lca==u là tổ tiên // k-th ancestor
+4	30.00	2-SAT: mệnh đề thành 2 cạnh suy diễn	4/8 · 2 nút/biến, Tarjan SCC	Ví dụ 3 mệnh đề, 5 cạnh		
+5	30.00	SCC {x1,x2}, nghiệm x1=T x2=T, kiểm tra đúng	5/8 · khác SCC với phủ định là có nghiệm	Mở slides.html Slide 4, bấm Next		
+6	30.00	Code LCA BFS + up, TwoSat Tarjan	6/8 · getLCA O log n, solve bool	Tóm tắt 30 giây cuối slide		BFS+up // Tarjan low-link // topo ngược gán
+7	30.00	Bẫy: LOG đủ lớn, Tarjan min đúng nhánh, index 0-based	7/8 · scc[2i]==scc[2i+1] là vô nghiệm	Đảo nhánh Tarjan là sai		LOG=31-clz+1 // min đúng nhánh // 0-based
+8	30.00	Quiz: LCA(4,5)=4; SAT có nghiệm; cùng SCC là vô nghiệm	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: Dinic Max Flow		LCA45=4 // SAT ok // cùng SCC vô nghiệm

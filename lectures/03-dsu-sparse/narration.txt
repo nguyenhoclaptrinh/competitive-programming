@@ -1,0 +1,48 @@
+Phần 1. D S U — Bài toán tập hợp rời rạc.
+Cho n phần tử, cần hỗ trợ 2 thao tác: unite(u,v) gộp 2 tập, same(u,v) kiểm tra cùng tập.
+Ví dụ n=8: unite(1,2), unite(2,3), unite(5,6). same(1,3) = true, same(1,5) = false.
+Mảng parentOrSize: giá trị âm = gốc (kích thước = -giá trị), dương = chỉ số cha.
+Khởi tạo: parentOrSize[i] = -1. unite dùng Union by Size + Path Compression. Độ phức tạp O alpha(n) ≈ O 1.
+
+Phần 2. Mảng parentOrSize chi tiết.
+i=1..8, parentOrSize = [-1,-1,-1,-1,-1,-1,-1,-1].
+unite(1,2): root1=1(sz1), root2=2(sz1) → gộp 2 vào 1. parentOrSize[1]=-2, parentOrSize[2]=1.
+unite(2,3): find(2) → 1 (path compression), find(3)=3. gộp 3 vào 1. parentOrSize[1]=-3, parentOrSize[3]=1.
+Kết quả: 1,2,3 cùng gốc 1. parentOrSize = [-3,1,1,-1,-1,-1,-1,-1].
+size(2) = -parentOrSize[find(2)] = 3. unite trả false nếu đã cùng tập.
+
+Phần 3. Path Compression & Union by Size — 2 tối ưu bắt buộc.
+find(u): nếu parentOrSize[u] < 0 return u; else parentOrSize[u] = find(parentOrSize[u]) — nén đường đi.
+Union by Size: luôn gắn cây nhỏ vào cây lớn (so sánh giá trị âm). Giữ độ cao cây ≤ log n.
+Kết hợp 2 kỹ thuật: độ phức tạp O alpha(n) — hàm nghịch đảo Ackermann, ≤ 4 với mọi n thực tế.
+Bẫy: quên Path Compression → TLE. quên Union by Size → cây cao → đệ quy sâu → Stack Overflow.
+
+Phần 4. Sparse Table R M Q O 1 — Bài toán min đoạn tĩnh.
+Mảng a không đổi, cần query min(l,r) nhiều lần. Sparse Table tiền xử lý O n log n, query O 1.
+st[j][i] = min của đoạn [i, i + 2^j - 1]. Cơ sở st[0][i] = a[i].
+Quy hoạch động: st[j][i] = min(st[j-1][i], st[j-1][i + 2^(j-1)]).
+Ví dụ a = [3,1,4,1,5,9,2,6]. st[1][i] độ dài 2: [min(3,1)=1, min(1,4)=1, min(4,1)=1, min(1,5)=1, min(5,9)=5, min(9,2)=2, min(2,6)=2].
+
+Phần 5. Query O 1 bằng kỹ thuật đè đoạn (Overlap).
+Query min(l,r): len = r-l+1. k bằng 31 trừ c l z của len (tức floor log 2).
+Đoạn [l,r] bị phủ bởi 2 đoạn độ dài 2 mũ k: [l, l+2^k-1] và [r-2^k+1, r].
+min = min(st[k][l], st[k][r-2^k+1]). Phần đè không ảnh hưởng min.
+Ví dụ query(2,7) len=6 k=2 (4). st[2][2] = min(a[2..5]) = 1. st[2][4] = min(a[4..7]) = 2. min(1,2) = 1.
+Tại sao không dùng log2? Hàm log2 double chậm, sai làm tròn. Dùng builtin c l z 1 chu kỳ CPU.
+
+Phần 6. Code chuẩn C++20 DSU + Sparse Table.
+DSU: mảng parentOrSize, find đệ quy nén đường, unite Union by Size.
+SparseTable: vector<vector<int>> st. build O n log n. query O 1 dùng 31 trừ builtin c l z.
+Cảnh báo: Sparse Table chỉ dùng cho phép toán idempotent như min, max, gcd — không dùng cho sum.
+C++: LOG = 31 trừ builtin c l z của n cộng 1. Vòng lặp build: i cộng một dịch trái j nhỏ hơn bằng n.
+
+Phần 7. Bẫy ICPC: DSU 1-based, Sparse Table 0-based.
+DSU: chỉ số 1..n. Nếu đề 0-based → +1. find đệ quy có thể Stack Overflow nếu n=3e5 đường thẳng — cần đệ quy đuôi hoặc loop (trong C++ đệ quy limit cao, thường OK, nhưng Python thì không).
+Sparse Table: mảng a 0-based. query(l,r) l,r 0-based. k = 31 - __builtin_clz(r-l+1).
+Bẫy sum: Sparse Table không làm được sum vì sum không idempotent (min(min(x,x),x) = x nhưng sum(x,x) ≠ sum(x)).
+
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: DSU n=8, unite(1,2), unite(2,3), unite(3,4). parentOrSize[1] = ? Đáp: -4 (kích thước 4).
+Câu 2: Sparse Table a=[3,1,4,1,5,9,2,6]. st[2][2] = ? Đáp: min(a[2..5]) = min(1,4,1,5) = 1.
+Câu 3: Vì sao Sparse Table không dùng cho sum? Đáp: sum không idempotent, phần đè bị cộng 2 lần.
+Hẹn bài 4: Topo Sort, 0-1 BFS, Bellman-Ford, Floyd-Warshall — đường đi ngắn nhất.

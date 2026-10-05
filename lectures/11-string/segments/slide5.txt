@@ -1,0 +1,18 @@
+Phần 5. Code C++20 Aho-Corasick.
+struct AhoCorasick {
+  static const int ALPH = 26;
+  struct Node {int next[ALPH]; int link=0, exitLink=0; vector<int> out; Node(){fill(next,next+ALPH,0);}};
+  vector<Node> t = {Node()};
+  void insert(string s, int id) {int u=0; for(char c:s){int x=c-'a'; if(!t[u].next[x]) t[u].next[x]=t.size(),t.emplace_back(); u=t[u].next[x];} t[u].out.push_back(id);}
+  void build() {
+    queue<int> q; for(int c=0;c<ALPH;c++) if(t[0].next[c]) q.push(t[0].next[c]);
+    while(!q.empty()){int u=q.front();q.pop();int f=t[u].link;
+      t[u].exitLink = t[f].out.empty()? t[f].exitLink : f;
+      for(int c=0;c<ALPH;c++){
+        if(t[u].next[c]) t[t[u].next[c]].link = t[f].next[c], q.push(t[u].next[c]);
+        else t[u].next[c] = t[f].next[c]; // DFA hoàn thiện
+      }
+    }
+  }
+  void search(string text, vector<vector<int>>& occ) {int u=0; for(int i=0;i<text.size();i++){u=t[u].next[text[i]-'a']; for(int id:t[u].out) occ[id].push_back(i); for(int v=t[u].exitLink;v;v=t[v].exitLink) for(int id:t[v].out) occ[id].push_back(i);}}
+};

@@ -1,0 +1,6 @@
+Phần 5. Code C++20 Hình học cơ bản.
+struct Point {ll x,y; Point operator-(Point o){return {x-o.x,y-o.y};} ll cross(Point o){return x*o.y-y*o.x;} ll dot(Point o){return x*o.x+y*o.y;} bool operator<(Point o){return x<o.x||(x==o.x&&y<o.y);} bool operator==(Point o){return x==o.x&&y==o.y;}};
+ll ccw(Point a,Point b,Point c){return (b-a).cross(c-a);}
+bool onSegment(Point p,Point a,Point b){return ccw(a,b,p)==0 && min(a.x,b.x)<=p.x && p.x<=max(a.x,b.x) && min(a.y,b.y)<=p.y && p.y<=max(a.y,b.y);}
+bool intersect(Point a,Point b,Point c,Point d){ll cp1=ccw(a,b,c),cp2=ccw(a,b,d),cp3=ccw(c,d,a),cp4=ccw(c,d,b); if ((cp1>0&&cp2<0||cp1<0&&cp2>0)&&(cp3>0&&cp4<0||cp3<0&&cp4>0)) return true; if (onSegment(c,a,b)) return true; if (onSegment(d,a,b)) return true; if (onSegment(a,c,d)) return true; if (onSegment(b,c,d)) return true; return false;}
+enum Pos {OUT,BOUND,IN}; Pos pointInPoly(Point p,vector<Point>&poly){int n=poly.size(); bool in=false; for(int i=0;i<n;i++){Point a=poly[i],b=poly[(i+1)%n]; if(onSegment(p,a,b)) return BOUND; if(a.y>b.y) swap(a,b); if(a.y<=p.y&&p.y<b.y&&ccw(a,b,p)>0) in=!in;} return in?IN:OUT;}

@@ -1,0 +1,9 @@
+slide	duration	title	sub	desc	type	content
+1	30.00	Bài 11: nCr modulo + CRT + Pollard Rho	1/8 · Fermat fact/invFact O(1)	MAX=1e6, 1 phép nhân/query		
+2	30.00	CRT: gộp x≡2(3),x≡1(5) → x≡11(15)	2/8 · extgcd + check chia hết	Mở slides.html Slide 2, bấm Next		
+3	30.00	Code extgcd/crtMerge/nCr	3/8 · đệ quy Euclid mở rộng	Tóm tắt 30 giây cuối slide		extgcd // check g // k,rem,mod
+4	30.00	Pollard Rho N=91: Brent bắt ước 7	4/8 · random+gcd, Miller-Rabin dừng	Mở slides.html Slide 4, bấm Next		
+5	30.00	Code mulMod128 + Rabin + Rho + factorize	5/8 · u128 nhân không tràn	MSVC/mt19937 lưu ý		u128 // 12 bases // Brent // đệ quy
+6	30.00	Bẫy: MOD nguyên tố, tràn 128, seed, bases	6/8 · Lucas nếu MOD hợp	4 bẫy sống còn		MOD ntố // 128-bit // seed clock // 2,7,61
+7	30.00	Ứng dụng: số ước, phi Euler, Fib ma trận	7/8 · từ factorize ra hết	3 ứng dụng		ước // phi // Fib log n
+8	30.00	Quiz: 120; vô nghiệm; 1e9+7 prime	8/8 · đáp án kiểm chứng bằng code	Hết 11 bài giảng		120 // vô nghiệm // prime true

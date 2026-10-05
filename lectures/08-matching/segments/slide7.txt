@@ -1,0 +1,7 @@
+Phần 7. Bẫy ICPC & so sánh Dinic.
+Dinic trên bipartite: source→trái cap1, phải→sink cap1, cạnh trái→phải cap1. O(E√V) như Hopcroft-Karp.
+Hopcroft-Karp nhanh hơn nhẹ (hằng số nhỏ, không cấp phát Edge struct).
+Bẫy: m,n up to 1e5 → adj dùng vector<int> không vector<vector<int>> (chậm cấp phát).
+pairU size n+1, pairV size m+1. dist size n+1.
+INF = 1e9. BFS dùng queue<int>. DFS đệ quy: depth ≤ √V, an toàn.
+Khởi tạo pairU=pairV=0. Nếu đỉnh 1-based: input u,v dùng trực tiếp.

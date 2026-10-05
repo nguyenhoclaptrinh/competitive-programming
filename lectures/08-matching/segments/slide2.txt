@@ -1,0 +1,6 @@
+Phần 2. BFS tìm đường mở ngắn nhất.
+dist[0] = INF (đỉnh ảo NIL). Queue chứa đỉnh trái chưa ghép.
+Pop u: nếu dist[u] < dist[0], duyệt v ∈ adj[u]:
+  nếu dist[pairV[v]] == INF: dist[pairV[v]] = dist[u] + 1; push(pairV[v]).
+Trả về dist[0] != INF (có đường mở đến NIL).
+Ví dụ: trái 1,2,3; phải 4,5,6. Cạnh: 1-4, 1-5, 2-5, 2-6, 3-6. Ban đầu pairU=pairV=0. dist[1]=dist[2]=dist[3]=0. BFS tìm đường đến NIL.

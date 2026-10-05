@@ -1,0 +1,5 @@
+Phần 6. Min Cut & ứng dụng.
+Sau maxFlow: BFS trên đồ thị thặng dư (cap>flow) từ s. Đỉnh đạt được = S. Còn lại = T. Min cut = các cạnh S→T ban đầu.
+Min cut capacity = Max flow (Định lý Max-Flow Min-Cut).
+Ứng dụng: bipartite matching (source→left cap1, right→sink cap1), project selection, image segmentation.
+Dinic trên Unit Network (cap=1): O(E√V). Hopcroft-Karp là case đặc biệt.

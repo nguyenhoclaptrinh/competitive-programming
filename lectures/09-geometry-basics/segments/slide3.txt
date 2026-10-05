@@ -1,0 +1,6 @@
+Phần 3. Điểm trong đa giác — Ray Casting.
+Tia ngang sang phải từ P: y=P.y, x≥P.x. Đếm giao với cạnh đa giác.
+Số giao LẺ → TRONG. CHẴN → NGOÀI.
+Xử lý đỉnh/cạnh: Cạnh [A,B] chỉ xét nếu A.y ≤ P.y < B.y (hoặc B.y ≤ P.y < A.y) — nửa mở nửa đóng.
+Nếu onSegment(P,A,B) → BOUNDARY.
+Code: for i=0..n-1: a=poly[i], b=poly[(i+1)%n]; if onSegment return BOUNDARY; if a.y>b.y swap; if a.y<=P.y && P.y<b.y && ccw(a,b,P)>0 inside=!inside.

@@ -1,0 +1,5 @@
+Phần 5. Ứng dụng: Diện tích bao lồi, đường kính, rotating calipers.
+Diện tích: Shoelace trên h. Chu vi: sum dist(h[i], h[(i+1)%k]).
+Đường kính (cặp điểm xa nhất): Rotating Calipers O(k). i=0, j=1. while area(i,i+1,j+1) > area(i,i+1,j) j++. Cập nhật max dist.
+Khoảng cách min đa giác lồi: tương tự.
+Bao lồi các điểm ngẫu nhiên: kỳ vọng O(log n) đỉnh.

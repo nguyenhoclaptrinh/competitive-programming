@@ -1,0 +1,5 @@
+Phần 1. D S U — Bài toán tập hợp rời rạc.
+Cho n phần tử, cần hỗ trợ 2 thao tác: unite(u,v) gộp 2 tập, same(u,v) kiểm tra cùng tập.
+Ví dụ n=8: unite(1,2), unite(2,3), unite(5,6). same(1,3) = true, same(1,5) = false.
+Mảng parentOrSize: giá trị âm = gốc (kích thước = -giá trị), dương = chỉ số cha.
+Khởi tạo: parentOrSize[i] = -1. unite dùng Union by Size + Path Compression. Độ phức tạp O alpha(n) ≈ O 1.

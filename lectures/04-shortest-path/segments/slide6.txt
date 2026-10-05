@@ -1,0 +1,6 @@
+Phần 6. Code chuẩn C++20 cho 4 thuật toán.
+Topo: vector<int> inDegree, queue<int>, vector<int> order.
+0-1 BFS: deque<int>, vector<int> dist, push_front w=0, push_back w=1.
+Bellman-Ford: struct Edge{u,v,w}, vector<Edge> edges, lặp n-1 lần + check lần n.
+Floyd: vector<vector<long long>> dist, 3 vòng lặp k-i-j.
+Tất cả dùng long long, INF = 1e18. Nút 1-based.

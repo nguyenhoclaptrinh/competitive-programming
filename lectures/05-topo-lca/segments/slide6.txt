@@ -1,0 +1,5 @@
+Phần 6. LCA tính khoảng cách + ứng dụng.
+distance(u,v) = depth[u] + depth[v] - 2*depth[lca].
+Ứng dụng: tìm đường đi trên cây, kiểm tra u có phải tổ tiên v (lca(u,v)==u), tìm trọng số đường đi (cần lưu distToRoot).
+2-SAT ứng dụng:cheduling, đồ thị 2-color, logic mệnh đề.
+Bẫy: LCA depth dùng int (n≤3e5). 2-SAT biến index 0..n-1, node = 2*i + (val?0:1).

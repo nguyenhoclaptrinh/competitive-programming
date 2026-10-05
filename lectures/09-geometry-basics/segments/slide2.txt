@@ -1,0 +1,6 @@
+Phần 2. Giao hai đoạn thẳng — Điều kiện chuẩn.
+Đoạn AB, CD. Giao nhau khi thuộc 1 trong 2 trường hợp.
+Một, cắt thông thường: C D nằm hai phía đường AB (tích 2 ccw âm) VÀ A B nằm hai phía đường CD.
+Hai, cắt suy biến: một đầu mút thẳng hàng VÀ nằm gọn trong hộp bao của đoạn kia (hàm on segment).
+Code: tính 4 ccw: c p 1 c p 2 c p 3 c p 4. Nếu c p 1 nhân c p 2 âm và c p 3 nhân c p 4 âm → giao.
+Cộng thêm 4 kiểm tra on segment cho đầu mút C D A B.

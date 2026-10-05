@@ -1,0 +1,13 @@
+Phần 5. Code C++20 Pollard Rho + Miller-Rabin.
+using u128=__uint128_t;
+ll mulMod(ll a,ll b,ll m){return (u128)a*b%m;}
+ll powMod(ll a,ll b,ll m){ll r=1;a%=m;for(;b;b>>=1,a=mulMod(a,a,m))if(b&1)r=mulMod(r,a,m);return r;}
+bool isPrime64(ll n){
+  if(n<2) return false; static const ll B[]={2,3,5,7,11,13,17,19,23,29,31,37};
+  for(ll p:B) if(n%p==0) return n==p;
+  ll d=n-1; int s=0; while((d&1)==0) d>>=1,s++;
+  for(ll a:B){ll x=powMod(a,d,n); if(x==1||x==n-1) continue; bool comp=true; for(int r=1;r<s;r++){x=mulMod(x,x,n); if(x==n-1){comp=false;break;}} if(comp) return false;}
+  return true;
+}
+ll pollardRho(ll n){if(n%2==0)return 2; if(isPrime64(n))return n; auto f=[&](ll x,ll c){return (mulMod(x,x,n)+c)%n;}; ll x=2,y=2,c=1,g=1; while(g==1){ll p=1,l=1; y=x; while(g==1){if(p==l){x=y;p<<=1;l=0;} y=f(y,c,n); l++; g=gcd(abs(x-y),n);} if(g==n){x=rand()%(n-2)+2;c=rand()%(n-1)+1;g=1;}} return g;}
+void factorize(ll n,vector<ll>&f){if(n==1)return; if(isPrime64(n)){f.push_back(n);return;} ll d=pollardRho(n); factorize(d,f); factorize(n/d,f);}

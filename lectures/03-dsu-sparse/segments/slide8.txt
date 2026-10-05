@@ -1,0 +1,5 @@
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: DSU n=8, unite(1,2), unite(2,3), unite(3,4). parentOrSize[1] = ? Đáp: -4 (kích thước 4).
+Câu 2: Sparse Table a=[3,1,4,1,5,9,2,6]. st[2][2] = ? Đáp: min(a[2..5]) = min(1,4,1,5) = 1.
+Câu 3: Vì sao Sparse Table không dùng cho sum? Đáp: sum không idempotent, phần đè bị cộng 2 lần.
+Hẹn bài 4: Topo Sort, 0-1 BFS, Bellman-Ford, Floyd-Warshall — đường đi ngắn nhất.

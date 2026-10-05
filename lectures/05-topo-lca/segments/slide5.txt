@@ -1,0 +1,5 @@
+Phần 5. Code C++20 LCA + 2-SAT.
+LCA: struct TreeLCA(n, root, adj). BFS queue tính depth và up 0. Bảng up j i. getLCA(u,v) O log n. distance = depth u + depth v - 2*depth lca.
+2-SAT: struct TwoSat(n). Hàm add clause với u valU v valV. solve(assignment) trả bool. adj 2*n. Tarjan dfs.
+Bẫy: LCA đệ quy → Stack Overflow (dùng BFS). 2-SAT Tarjan: nút chưa thăm thì dfs rồi lấy min low con; nút trong stack thì lấy min dfn.
+LOG = 31 trừ builtin c l z của n cộng 1. Mảng up dùng vector lồng vector int.

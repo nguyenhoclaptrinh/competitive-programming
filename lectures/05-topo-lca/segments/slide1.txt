@@ -1,0 +1,6 @@
+Phần 1. LCA Binary Lifting — Bài toán tổ tiên chung gần nhất.
+Cây gốc n đỉnh. LCA(u,v) = tổ tiên chung sâu nhất.
+DFS đệ quy n=3e5 → Stack Overflow. GIẢI PHÁP: BFS từ gốc tính depth, up[0][u] = cha.
+up[j][u] = tổ tiên cấp 2^j: up[j][u] = up[j-1][ up[j-1][u] ].
+LOG = 31 - clz(n) + 1. Build O n log n.
+Query: đưa u,v về cùng depth (nhảy diff bit). Nếu u=v return. Duyệt j từ LOG-1 xuống 0: nếu up[j][u] != up[j][v] thì nhảy cả hai. Return up[0][u].

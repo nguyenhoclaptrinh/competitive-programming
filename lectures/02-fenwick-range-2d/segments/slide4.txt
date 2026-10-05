@@ -1,0 +1,7 @@
+Phần 4. Truy vấn: phân biệt phần CỘNG THÊM và TỔNG THỰC.
+queryPrefix(p) = b1.query(p) * (p + 1) - b2.query(p). Đây là tổng PHẦN CỘNG THÊM vào [1..p].
+queryRange(l, r) = queryPrefix(r) - queryPrefix(l - 1).
+Ví dụ add [2,5] += 10: b1.query(5) = 10, b2.query(5) = 20. Phần cộng thêm vào [1..5] = 10*6 - 20 = 40.
+Kiểm tra tay phần cộng thêm: [0,10,10,10,10,0...] tổng 1..5 = 40. Đúng!
+Tổng thực tế = tổng gốc + phần cộng thêm. Gốc [1..5] = 3+1+4+1+5 = 14. 14 + 40 = 54.
+Muốn tổng thực tế: xây RangeBIT từ mảng gốc (n lần addRange điểm) rồi cộng thêm các range update.

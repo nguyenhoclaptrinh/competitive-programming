@@ -1,0 +1,54 @@
+Phần 1. Hopcroft-Karp — Ghép cực đại đồ thị hai phía.
+Bài toán: n đỉnh trái, m đỉnh phải, cạnh giữa hai phía. Tìm số cặp ghép max.
+Đường mở (Augmenting Path): xen kẽ cạnh chưa ghép/đã ghép, đầu cuối chưa ghép. Đảo ngược → +1 cặp.
+Kuhn O(V*E) chậm. Hopcroft-Karp: BFS tìm TẤT CẢ đường mở NGẮN NHẤT cùng lúc → O(E√V).
+BFS: dist[u]=0 nếu chưa ghép, push queue. Duyệt cạnh u→v: nếu pairV[v]==0 (đích chưa ghép) → dist[0]=dist[u]+1. Nếu pairV[v]!=0 và dist[pairV[v]]==INF → dist[pairV[v]]=dist[u]+1, push.
+DFS(u): nếu u!=0, duyệt v: nếu dist[pairV[v]]==dist[u]+1 và DFS(pairV[v]) thì ghép u-v.
+
+Phần 2. BFS tìm đường mở ngắn nhất.
+dist[0] = INF (đỉnh ảo NIL). Queue chứa đỉnh trái chưa ghép.
+Pop u: nếu dist[u] < dist[0], duyệt v ∈ adj[u]:
+  nếu dist[pairV[v]] == INF: dist[pairV[v]] = dist[u] + 1; push(pairV[v]).
+Trả về dist[0] != INF (có đường mở đến NIL).
+Ví dụ: trái 1,2,3; phải 4,5,6. Cạnh: 1-4, 1-5, 2-5, 2-6, 3-6. Ban đầu pairU=pairV=0. dist[1]=dist[2]=dist[3]=0. BFS tìm đường đến NIL.
+
+Phần 3. DFS tăng luồng trên đường mở ngắn nhất.
+DFS(u): nếu u!=0: duyệt v ∈ adj[u]: nếu dist[pairV[v]] == dist[u]+1:
+  nếu DFS(pairV[v]): pairV[v]=u; pairU[u]=v; return true.
+dist[u]=INF; return false.
+Trường hợp cơ sở: u==0 return true (đã đến NIL).
+Chạy: while(bfs()) for u=1..n if pairU[u]==0 && dfs(u) matching++.
+Ví dụ: sau BFS, DFS từ 1 tìm đường 1-4-NIL, ghép 1-4. Tiếp 2 tìm 2-5-NIL, ghép 2-5. 3 tìm 3-6-NIL, ghép 3-6. Matching=3.
+
+Phần 4. Ví dụ số đầy đủ step-by-step.
+Trái: 1,2,3,4. Phải: 5,6,7,8. Cạnh: 1-5, 1-6, 2-5, 2-7, 3-6, 3-8, 4-7, 4-8.
+BFS lần 1: dist[1..4]=0. 1→5,6: pairV[5]=0→dist[0]=1; pairV[6]=0→dist[0]=1. 2→5,7: dist[0]=1. 3→6,8: dist[0]=1. 4→7,8: dist[0]=1.
+DFS: 1→5 ghép. 2→7 ghép. 3→6 ghép. 4→8 ghép. Matching=4 (hoàn hảo).
+Trường hợp khó: thêm cạnh 1-7, 2-6. BFS tìm đường dài hơn nếu cần.
+
+Phần 5. Code C++20 Hopcroft-Karp.
+struct HopcroftKarp {int n,m; vector<vector<int>> adj; vector<int> pairU,pairV,dist;};
+addEdge(u,v): adj[u].push_back(v).
+bfs(): queue. dist.assign(n+1,INF). for u=1..n if pairU[u]==0 dist[u]=0,q.push(u); dist[0]=INF. while q: u=pop; if dist[u]<dist[0] for v:adj[u] if dist[pairV[v]]==INF dist[pairV[v]]=dist[u]+1,q.push(pairV[v]); return dist[0]!=INF.
+dfs(u): if u!=0 for v:adj[u] if dist[pairV[v]]==dist[u]+1 && dfs(pairV[v]) pairV[v]=u,pairU[u]=v,return true; dist[u]=INF; return false.
+maxMatching(): matching=0; while(bfs()) for u=1..n if pairU[u]==0 && dfs(u)) matching++; return matching.
+
+Phần 6. Lấy danh sách cặp ghép & Minimum Vertex Cover.
+Sau maxMatching: pairU[u] = v đã ghép. Duyệt u=1..n: nếu pairU[u]!=0 → cặp (u, pairU[u]).
+Min Vertex Cover (Kőnig): BFS từ đỉnh trái CHƯA GHÉP trên đồ thị: trái→phải (cạnh CHƯA GHÉP), phải→trái (cạnh ĐÃ GHÉP).
+Đỉnh trái KHÔNG đạt được + đỉnh phải ĐẠT ĐƯỢC = Min Vertex Cover.
+Max Independent Set = Complement của Min Vertex Cover.
+
+Phần 7. Bẫy ICPC & so sánh Dinic.
+Dinic trên bipartite: source→trái cap1, phải→sink cap1, cạnh trái→phải cap1. O(E√V) như Hopcroft-Karp.
+Hopcroft-Karp nhanh hơn nhẹ (hằng số nhỏ, không cấp phát Edge struct).
+Bẫy: m,n up to 1e5 → adj dùng vector<int> không vector<vector<int>> (chậm cấp phát).
+pairU size n+1, pairV size m+1. dist size n+1.
+INF = 1e9. BFS dùng queue<int>. DFS đệ quy: depth ≤ √V, an toàn.
+Khởi tạo pairU=pairV=0. Nếu đỉnh 1-based: input u,v dùng trực tiếp.
+
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: BFS Hopcroft-Karp: dist[0] = ? ý nghĩa? Đáp: khoảng cách đến NIL (đỉnh ảo đích). dist[0]!=INF ⇔ tồn tại đường mở.
+Câu 2: DFS: điều kiện if (dist[pairV[v]] == dist[u]+1) ý nghĩa? Đáp: chỉ đi theo đường mở NGẮN NHẤT do BFS tìm được.
+Câu 3: Min Vertex Cover: đỉnh trái chưa ghép BFS qua cạnh chưa ghép sang phải, cạnh đã ghép về trái. Tập cover = ? Đáp: trái KHÔNG đạt + phải ĐẠT.
+Hẹn bài 9: Hình học — CCW, giao đoạn, điểm trong đa giác.

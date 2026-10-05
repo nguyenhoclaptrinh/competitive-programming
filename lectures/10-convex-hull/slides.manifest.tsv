@@ -1,0 +1,9 @@
+slide	duration	title	sub	desc	type	content
+1	30.00	Bài 9: Bao lồi Andrew — sort (x,y) + quét 2 lượt	1/8 · ccw≤0 là pop, không góc cực	Ví dụ 6 điểm đã sort		
+2	30.00	Vỏ dưới: pop (1,1), pop (2,2), pop thẳng hàng (2,0)	2/8 · ccw 2,-2,-2,0,4	Mở slides.html Slide 2, bấm Next		
+3	30.00	Vỏ trên + ghép: pop (2,0),(1,-1),(1,1) → 4 đỉnh	3/8 · t=4, resize(k-1)	Mở slides.html Slide 3, bấm Next		
+4	30.00	Code Andrew: sort+unique+2 vòng+resize	4/8 · bỏ trùng bắt buộc	Tóm tắt 30 giây cuối slide		sort unique // 2 vòng pop // resize k-1
+5	30.00	Rotating Calipers: j đơn điệu, đường kính O(k)	5/8 · diện tích tăng thì leo j	ans=max dist bình phương		j đơn điệu // ≤2n bước // max dist2
+6	30.00	Bẫy: trùng, thẳng hàng, n≤2, long long	6/8 · unique sau sort	4 bẫy sống còn		unique // collinear 2 đỉnh // n≤2 // ll
+7	30.00	Ứng dụng: diện tích, chu vi, đỉnh ngẫu nhiên	7/8 · Shoelace trên h	3 ứng dụng		Shoelace // chu vi // log n đỉnh
+8	30.00	Quiz: luật <0 giữ collinear; thẳng hàng 2 đỉnh; j≤2n	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: Xâu ký tự		collinear dư // 2 đỉnh // j 2n

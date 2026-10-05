@@ -1,0 +1,6 @@
+Phần 5. Query O 1 bằng kỹ thuật đè đoạn (Overlap).
+Query min(l,r): len = r-l+1. k bằng 31 trừ c l z của len (tức floor log 2).
+Đoạn [l,r] bị phủ bởi 2 đoạn độ dài 2 mũ k: [l, l+2^k-1] và [r-2^k+1, r].
+min = min(st[k][l], st[k][r-2^k+1]). Phần đè không ảnh hưởng min.
+Ví dụ query(2,7) len=6 k=2 (4). st[2][2] = min(a[2..5]) = 1. st[2][4] = min(a[4..7]) = 2. min(1,2) = 1.
+Tại sao không dùng log2? Hàm log2 double chậm, sai làm tròn. Dùng builtin c l z 1 chu kỳ CPU.

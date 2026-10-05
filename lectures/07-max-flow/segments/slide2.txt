@@ -1,0 +1,5 @@
+Phần 2. BFS Level Graph step-by-step.
+Khởi tạo level[] = -1. level[s]=0. Queue=[s].
+Pop u, duyệt cạnh u→v cap>flow. Nếu level[v]==-1: level[v]=level[u]+1, push v.
+Kết thúc: level[t] != -1 có đường tăng.
+Ví dụ: s=1. level[1]=0. 1→2 cap10→level[2]=1. 1→3 cap10→level[3]=1. Pop 2: 2→4 cap8→level[4]=2. Pop 3: 3→4 cap9→level[4] đã set. level[t]=2.

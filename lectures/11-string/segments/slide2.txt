@@ -1,0 +1,7 @@
+Phần 2. Tận dụng đối xứng O(N).
+Duy trì C = tâm palindrome biên phải xa nhất, R = C + P[C].
+Khi i nhỏ hơn R: i phẩy = 2*C - i (đối xứng qua C). P[i] lớn hơn bằng min(R-i, P[i phẩy]).
+Sau đó mở rộng while t[i+1+P[i]] == t[i-1-P[i]] thì P[i]++.
+Nếu i + P[i] lớn hơn R: C = i, R = i + P[i].
+R chỉ tăng đơn điệu từ 0 đến cuối. Tổng so sánh không quá 2N. Độ phức tạp O(N).
+Ví dụ: s="abacaba". C,R cập nhật từng bước khi quét i từ trái sang phải.

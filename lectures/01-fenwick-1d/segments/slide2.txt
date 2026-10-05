@@ -1,0 +1,3 @@
+Phần 2. Ba cách làm. Cách một, duyệt mảng trực tiếp: cộng thì O 1, nhưng tính tổng tốn O n.
+Cách hai, mảng cộng dồn: tính tổng O 1, nhưng mỗi lần cộng phải dời cả đuôi mảng, tốn O n.
+Cách ba, Fenwick Tree: cả hai việc đều O log n. Ý tưởng trực quan như đổi tiền. Thay vì toàn tờ một đồng, hay một tờ mệnh giá lớn, Fenwick có đủ tờ một, hai, bốn, tám. Ghép số tiền nào cũng chỉ cần vài tờ, tức là log n tờ.

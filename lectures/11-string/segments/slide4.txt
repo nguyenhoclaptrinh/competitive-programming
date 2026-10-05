@@ -1,0 +1,5 @@
+Phần 4. Aho-Corasick — Khớp đa mẫu.
+Trie chứa các pattern. Failure link = hậu tố dài nhất cũng là tiền tố pattern.
+Build: BFS từ root. Failure link của con = next[fail][c]. Nếu không có cạnh c → gán next[fail][c] (hoàn thiện DFA).
+Duyệt text: state = next[state][c]. Kiểm tra output tại state và exitLink.
+Ứng dụng: tìm nhiều pattern cùng lúc trong 1 text. O(|text| + tổng|pattern| + số match).

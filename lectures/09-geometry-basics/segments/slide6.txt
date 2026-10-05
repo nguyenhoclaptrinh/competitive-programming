@@ -1,0 +1,6 @@
+Phần 6. Bẫy ICPC hình học.
+Tọa độ lớn: cross tích 1e9*1e9 = 1e18 → BẮT BUỘC long long. int tràn.
+Độ chính xác: chỉ dùng số nguyên (long long). KHÔNG dùng double cho CCW, giao đoạn.
+Góc 180 độ: 3 điểm thẳng hàng (ccw=0) → onSegment check bounding box.
+Đa giác lồi/ lõm: ray casting hoạt động cho cả hai.
+Clockwise/Counter-clockwise: ccw>0 là CCW (trái). Kiểm tra hướng đa giác: tổng cross cạnh kề >0 là CCW.

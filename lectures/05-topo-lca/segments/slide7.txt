@@ -1,0 +1,5 @@
+Phần 7. Bẫy ICPC.
+LCA: cây 1-based. Đề cho 0-based → +1. LOG đủ lớn: 31 - clz(3e5) + 1 ≈ 20.
+2-SAT: vô nghiệm khi scc[2*i] == scc[2*i+1]. Dùng vector<int> dfn, low, scc, stack<int>.
+Khởi tạo: dfn.assign(2*n, 0). Timer tăng mỗi dfs. sccCount tăng khi low[u]==dfn[u].
+Bẫy code: low[u] = min(low[u], inStack[v] ? dfn[v] : low[v]) — SAI nếu v chưa thăm xong. Đúng: if (!dfn[v]) dfs(v), low[u]=min(low[u],low[v]); else if (inStack[v]) low[u]=min(low[u],dfn[v]).

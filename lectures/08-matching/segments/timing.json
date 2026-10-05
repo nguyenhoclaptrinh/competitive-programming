@@ -1,0 +1,35 @@
+{
+ "files": [
+  "slide1.txt",
+  "slide2.txt",
+  "slide3.txt",
+  "slide4.txt",
+  "slide5.txt",
+  "slide6.txt",
+  "slide7.txt",
+  "slide8.txt"
+ ],
+ "durations": [
+  57.74,
+  50.5,
+  53.64,
+  60.5,
+  67.58,
+  33.19,
+  52.32,
+  46.73
+ ],
+ "starts": [
+  0.0,
+  57.74,
+  108.24,
+  161.88,
+  222.38,
+  289.96,
+  323.15,
+  375.47
+ ],
+ "total": 422.2,
+ "voice": "vi-VN-HoaiMyNeural",
+ "rate": "-5%"
+}

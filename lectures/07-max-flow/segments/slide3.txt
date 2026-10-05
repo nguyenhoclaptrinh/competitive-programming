@@ -1,0 +1,9 @@
+Phần 3. DFS Blocking Flow + ptr[u].
+DFS(u, pushed): nếu pushed==0 hoặc u==t return pushed.
+for (int &cid = ptr[u]; cid < adj[u].size(); ++cid):
+  Edge &e = adj[u][cid]; int v = e.to;
+  if (level[v]!=level[u]+1 || e.cap<=e.flow) continue;
+  tr_pushed = DFS(v, min(pushed, e.cap-e.flow));
+  if (tr_pushed>0): e.flow+=tr_pushed; adj[v][e.rev].flow-=tr_pushed; return tr_pushed;
+return 0.
+ptr[u] là THAM CHIẾU: sau khi cạnh bão hòa, lần sau BỎ QUA luôn. Không có ptr → TLE.

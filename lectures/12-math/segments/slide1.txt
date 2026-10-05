@@ -1,0 +1,7 @@
+Phần 1. Tổ hợp modulo nguyên tố — Fact & InvFact O(1).
+C(n,r) = n! chia (r! nhân (n-r)!) mod MOD. MOD nguyên tố (thường 1e9+7).
+Tiền xử lý: fact[0]=1; for i=1..MAX: fact[i]=fact[i-1]*i%MOD.
+invFact[MAX-1] = fact[MAX-1] mũ (MOD-2) mod MOD (Fermat nhỏ).
+for i=MAX-2..0: invFact[i] = invFact[i+1]*(i+1)%MOD.
+C(n,r) = fact[n]*invFact[r]%MOD*invFact[n-r]%MOD. O(1) mỗi truy vấn.
+Ví dụ: MAX bằng một triệu cộng 5. fact tính xuôi 1 lần, invFact tính ngược 1 lần.

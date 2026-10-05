@@ -1,0 +1,5 @@
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: ccw((0,0),(1,0),(0,1)) = ? Đáp: 1 > 0 (rẽ trái).
+Câu 2: Đoạn (0,0)-(2,2) và (0,2)-(2,0) có giao? Đáp: CÓ, tại (1,1).
+Câu 3: Đa giác (0,0),(4,0),(4,4),(0,4). Điểm (2,2) ở đâu? Đáp: TRONG (inside).
+Hẹn bài 10: Bao lồi Andrew Monotone Chain.

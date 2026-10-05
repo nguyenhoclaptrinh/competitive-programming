@@ -1,0 +1,5 @@
+Phần 7. Bẫy ICPC thực chiến.
+Topo: n tới hai trăm nghìn → dùng vector<int> adj tĩnh, không vector<vector<int>> lồng (chậm cấp phát).
+0-1 BFS: chỉ đúng khi trọng số CHỈ 0 hoặc 1. Có trọng số 2 → sai.
+Bellman: edges vector reserve m. Dừng sớm quan trọng. Chu trình âm chỉ phát hiện được nếu ĐẾN ĐƯỢC từ nguồn.
+Floyd: n=500 → 125 triệu phép, biên 1 giây có thể quá giờ → -O2, dùng mảng tĩnh long long dist 501x501.

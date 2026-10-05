@@ -1,0 +1,5 @@
+Phần 4. Sparse Table R M Q O 1 — Bài toán min đoạn tĩnh.
+Mảng a không đổi, cần query min(l,r) nhiều lần. Sparse Table tiền xử lý O n log n, query O 1.
+st[j][i] = min của đoạn [i, i + 2^j - 1]. Cơ sở st[0][i] = a[i].
+Quy hoạch động: st[j][i] = min(st[j-1][i], st[j-1][i + 2^(j-1)]).
+Ví dụ a = [3,1,4,1,5,9,2,6]. st[1][i] độ dài 2: [min(3,1)=1, min(1,4)=1, min(4,1)=1, min(1,5)=1, min(5,9)=5, min(9,2)=2, min(2,6)=2].

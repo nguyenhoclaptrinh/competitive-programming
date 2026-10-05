@@ -1,0 +1,7 @@
+Phần 3. Bellman-Ford — Phát hiện chu trình âm.
+Khởi tạo dist[s]=0, khác = INF. Lặp n-1 lần: duyệt mọi cạnh, nới lỏng (relax).
+if dist[u]+w < dist[v] thì dist[v] = dist[u]+w.
+Sau n-1 lần, nếu còn nới lỏng được → có chu trình âm.
+Tối ưu: dừng sớm nếu lần lặp không có thay đổi.
+Dùng long long. Chống underflow: dist[v] = max(-INF, dist[u]+w).
+Ví dụ: n=3, 1→2 (5), 2→3 (-10), 3→1 (3). Chu trình tổng -2. Bellman-Ford phát hiện.

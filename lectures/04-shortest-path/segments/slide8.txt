@@ -1,0 +1,5 @@
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: Topo: đồ thị 1→2, 2→3, 3→1. Có chu trình? Đáp: có, order.size=0.
+Câu 2: 0-1 BFS: cạnh 1-2 (0), 2-3 (1). Từ 1, dist[3] = ? Đáp: 1 (đi 1→2→3, tổng 0+1=1).
+Câu 3: Floyd: n=3, cạnh 1→2 (1), 2→3 (2), 1→3 (100). Sau Floyd dist[1][3] = ? Đáp: 3 (qua 2).
+Hẹn bài 5: LCA Binary Lifting và 2-SAT logic.

@@ -1,0 +1,6 @@
+Phần 6. Bẫy ICPC xâu.
+Manacher: t size = 2n+3. p[i] có thể = 0. Kiểm tra i+p[i] < m và i-p[i] >= 0.
+Aho: ALPHABET size (26 lowercase, 52, 128 ASCII). next dùng vector<array<int,ALPH>> hoặc vector<int> flat.
+Failure link root = 0. exitLink = 0 nếu fail không có output.
+Text duyệt: u = t[u].next[c]. KHÔNG cần while loop nhờ DFA hoàn thiện.
+Tổng node ≤ tổng độ dài pattern + 1. Memory: node * (ALPH*4 + ...) byte.

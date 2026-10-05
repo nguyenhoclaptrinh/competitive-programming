@@ -1,0 +1,6 @@
+Phần 1. Hopcroft-Karp — Ghép cực đại đồ thị hai phía.
+Bài toán: n đỉnh trái, m đỉnh phải, cạnh giữa hai phía. Tìm số cặp ghép max.
+Đường mở (Augmenting Path): xen kẽ cạnh chưa ghép/đã ghép, đầu cuối chưa ghép. Đảo ngược → +1 cặp.
+Kuhn O(V*E) chậm. Hopcroft-Karp: BFS tìm TẤT CẢ đường mở NGẮN NHẤT cùng lúc → O(E√V).
+BFS: dist[u]=0 nếu chưa ghép, push queue. Duyệt cạnh u→v: nếu pairV[v]==0 (đích chưa ghép) → dist[0]=dist[u]+1. Nếu pairV[v]!=0 và dist[pairV[v]]==INF → dist[pairV[v]]=dist[u]+1, push.
+DFS(u): nếu u!=0, duyệt v: nếu dist[pairV[v]]==dist[u]+1 và DFS(pairV[v]) thì ghép u-v.

@@ -1,0 +1,5 @@
+Phần 5. B I T 2D — tại sao không Segment Tree 2D?
+Segment Tree 2D cần mảng 4n * 4m. Với n=m=2000 là 8000*8000*8 byte ≈ 512 MB — tràn bộ nhớ.
+B I T 2D chỉ cần (n+1)*(m+1). 2001*2001*8 byte ≈ 32 MB, nhanh gấp 5-10 lần nhờ cache liên tục.
+Cấu trúc: mảng 2 chiều tree[i][j]. add(x,y,v): i từ x đến n bước i&-i, j từ y đến m bước j&-j.
+query(x,y): i từ x xuống 0, j từ y xuống 0. queryRect dùng bù trừ 4 góc.

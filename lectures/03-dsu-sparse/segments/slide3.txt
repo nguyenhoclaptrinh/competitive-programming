@@ -1,0 +1,5 @@
+Phần 3. Path Compression & Union by Size — 2 tối ưu bắt buộc.
+find(u): nếu parentOrSize[u] < 0 return u; else parentOrSize[u] = find(parentOrSize[u]) — nén đường đi.
+Union by Size: luôn gắn cây nhỏ vào cây lớn (so sánh giá trị âm). Giữ độ cao cây ≤ log n.
+Kết hợp 2 kỹ thuật: độ phức tạp O alpha(n) — hàm nghịch đảo Ackermann, ≤ 4 với mọi n thực tế.
+Bẫy: quên Path Compression → TLE. quên Union by Size → cây cao → đệ quy sâu → Stack Overflow.

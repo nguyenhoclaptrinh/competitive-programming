@@ -1,0 +1,6 @@
+Phần 6. Bẫy ICPC số học.
+nCr: MOD phải nguyên tố. Nếu MOD không nguyên tố → dùng Lucas hoặc phân tích MOD.
+CRT: m1,m2 tới 10 mũ 18 → m1/g*m2 có thể tràn số 128 bit. Dùng __int128 cho phép nhân.
+Pollard: rand() không đủ ngẫu nhiên → dùng mt19937_64. seed bằng đồng hồ steady clock.
+Miller-Rabin: đủ 12 cơ số cho 64-bit. Nếu N dưới 2 mũ 32 chỉ cần cơ số {2,7,61}.
+mulMod dùng u128: (u128)a*b%m. GCC Clang hỗ trợ. MSVC không → cần asm hoặc mul portable.

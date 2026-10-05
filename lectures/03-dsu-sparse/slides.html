@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bài 3: DSU + Sparse Table — Hiểu sâu qua hình + tiếng</title>
+<style>*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Roboto,"Noto Sans",Arial,sans-serif;background:#0f172a;color:#e2e8f0;line-height:1.65}
+#progress-bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,#0ea5e9,#38bdf8,#a855f7);width:0%;z-index:99;transition:width 0.2s}
+header{padding:12px 20px;background:#020617;border-bottom:1px solid #1e293b;display:flex;gap:16px;align-items:center;flex-wrap:wrap;position:sticky;top:0;z-index:10}
+header h1{font-size:16px;margin:0;color:#f8fafc}
+header p{margin:2px 0 0;font-size:12.5px;color:#94a3b8}
+.audio-panel{display:flex;flex-direction:column;gap:5px;flex:1;min-width:280px}
+.audio-ctrls{display:flex;align-items:center;gap:10px}
+audio{height:32px;flex:1}
+.speed-group{display:flex;gap:4px;align-items:center}
+.btn-xs{background:#1e293b;border:1px solid #475569;color:#94a3b8;font-size:11px;padding:3px 7px;border-radius:6px;cursor:pointer;font-weight:600}
+.btn-xs:hover,.btn-xs.active{background:#0ea5e9;color:#02131f;border-color:#0ea5e9}
+main{max-width:1020px;margin:0 auto;padding:18px}
+.slide{display:none;background:#1e293b;border:1px solid #334155;border-radius:16px;padding:26px;margin-bottom:14px}
+.slide.active{display:block}
+.slide h2{margin:0 0 6px;font-size:21px;color:#7dd3fc}
+.sub{color:#94a3b8;font-size:13.5px;margin-bottom:14px}
+.slide p{font-size:15px;margin:8px 0}
+.slide ul,.slide ol{font-size:14.5px;margin:8px 0;padding-left:22px}
+code{background:#020617;padding:2px 7px;border-radius:6px;color:#7dd3fc;font-size:13.5px;border:1px solid #1e293b}
+pre{background:#020617;border-radius:10px;padding:14px;overflow:auto;font-size:13.5px;line-height:1.6;border:1px solid #334155}
+.code-header{display:flex;justify-content:space-between;align-items:center;background:#0f172a;padding:8px 14px;border-radius:10px 10px 0 0;border:1px solid #334155;border-bottom:0;font-size:12px;color:#94a3b8}
+.code-header+pre{border-top-left-radius:0;border-top-right-radius:0;margin-top:0}
+.copy-btn{background:#334155;color:#e2e8f0;border:0;padding:4px 10px;border-radius:6px;font-size:11.5px;cursor:pointer;font-weight:600}
+.kw{color:#f472b6;font-weight:700}.type{color:#38bdf8;font-weight:600}.fn{color:#a78bfa;font-weight:600}.com{color:#64748b;font-style:italic}.num{color:#fbbf24}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid #475569;padding:8px 9px;text-align:center}
+th{background:#020617;color:#7dd3fc}
+td.hl{background:#164e63;font-weight:700;color:#fff}
+.grid8{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:12px 0}
+.grid6{display:grid;grid-template-columns:repeat(6,1fr);gap:6px;margin:12px 0}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin:12px 0}
+.cell{background:#020617;border:1px solid #475569;border-radius:10px;padding:8px 4px;text-align:center;transition:all 0.2s}
+.cell .idx{font-size:11px;color:#94a3b8}
+.cell .val{font-size:19px;font-weight:800}
+.cell.hit{background:#b45309;border-color:#f59e0b}
+.cell.hit2{background:#166534;border-color:#22c55e}
+.cell .note{font-size:11px;color:#fde68a}
+.gcell{background:#020617;border:1px solid #475569;border-radius:8px;padding:10px 2px;text-align:center;font-weight:800;font-size:16px}
+.gcell.hit{background:#b45309;border-color:#f59e0b}
+.gcell.hit2{background:#166534;border-color:#22c55e}
+.cover{border-radius:10px;padding:10px 12px;margin:8px 0;font-size:14px;border:1px solid #475569;background:#020617}
+.cover b{color:#fbbf24}
+svg.tree{width:100%;height:auto;background:#020617;border-radius:10px;border:1px solid #334155}
+.steps{background:#020617;border-radius:10px;padding:13px;min-height:90px;font-size:14.5px;border:1px solid #334155}
+.nav{display:flex;gap:10px;align-items:center;justify-content:center;margin:10px 0 26px}
+button{background:#0ea5e9;border:0;color:#02131f;font-weight:700;padding:9px 16px;border-radius:9px;cursor:pointer;font-size:14px}
+button.ghost{background:#334155;color:#e2e8f0}
+#idx{font-size:14px;color:#94a3b8;font-weight:600}
+.warn{background:#450a0a;border:1px solid #ef4444;border-radius:10px;padding:13px;font-size:14.5px}
+.tip{background:#052e16;border:1px solid #22c55e;border-radius:10px;padding:13px;font-size:14.5px;margin-top:10px}
+.formula{background:#082f49;border:1px solid #0ea5e9;border-radius:10px;padding:12px;font-size:15px;margin:10px 0}
+kbd{background:#020617;border:1px solid #475569;border-radius:6px;padding:1px 7px;font-size:12px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:700px){.two{grid-template-columns:1fr}}
+.pill{display:inline-block;background:#0ea5e9;color:#02131f;font-weight:700;font-size:12px;border-radius:20px;padding:2px 10px;margin-right:6px}
+.quiz-card{background:#020617;border:1px solid #334155;border-radius:10px;padding:12px 16px;margin:10px 0}
+.quiz-q{font-weight:700;color:#f8fafc;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.quiz-ans{display:none;margin-top:10px;padding-top:10px;border-top:1px dashed #334155;color:#86efac;font-size:14px}
+.quiz-ans.open{display:block}</style>
+</head>
+<body>
+<div id="progress-bar"></div>
+<header>
+<div style="flex:2;min-width:260px">
+<h1>Bài 3: DSU nén đường đi + Sparse Table RMQ O(1)</h1>
+<p>Dùng phím ← → hoặc Trước/Sau. Space dừng/phát. Phím N chạy bước tiếp theo.</p>
+</div>
+<div class="audio-panel">
+<div class="audio-ctrls">
+<audio controls src="audio.mp3" preload="metadata"></audio>
+<div class="speed-group">
+<button class="btn-xs" onclick="setSpeed(0.75)">0.75x</button>
+<button class="btn-xs active" onclick="setSpeed(1.0)">1.0x</button>
+<button class="btn-xs" onclick="setSpeed(1.25)">1.25x</button>
+<button class="btn-xs" onclick="setSpeed(1.5)">1.5x</button>
+</div>
+</div>
+<label style="display:flex;align-items:center;gap:6px;font-size:12px;color:#7dd3fc;cursor:pointer;user-select:none">
+<input type="checkbox" id="chkAutoSync" checked style="cursor:pointer;accent-color:#0ea5e9"> Tự động chuyển slide theo Audio (Auto-Sync)
+</label>
+</div>
+</header>
+<main>
+<section class="slide">
+<h2>1/8 — DSU: gộp tập hợp trong O(1) gần như tuyệt đối</h2>
+<div class="sub">unite + same với 1 mảng parentOrSize</div>
+<p>n = 8 phần tử. <code>unite(1,2), unite(2,3), unite(5,6)</code>. Hỏi <code>same(1,3)</code>? true. <code>same(1,5)</code>? false.</p>
+<div class="formula">Một mảng duy nhất: <b>âm = gốc</b> (cỡ tập = −giá trị), <b>dương = chỉ số cha</b>. Khởi tạo toàn <code>−1</code>.</div>
+<div class="grid8" id="d1"></div>
+<div class="tip">Ví dụ: parentOrSize[1] = −3 nghĩa là 1 là gốc của tập 3 phần tử.</div>
+</section>
+<section class="slide">
+<h2>2/8 — unite step-by-step: Union by Size</h2>
+<div class="sub">Bấm Next: unite(1,2) rồi unite(2,3)</div>
+<div class="grid8" id="d2"></div>
+<div class="cover" id="cov2">Bấm Next để gộp từng cặp.</div>
+<div class="steps" id="cap2">unite(1,2): hai gốc cỡ 1 → gắn 2 dưới 1.</div>
+<p><button data-next onclick="nextStep('s2')">Next bước</button> <button class="ghost" onclick="resetSteps('s2')">Chạy lại</button></p>
+</section>
+<section class="slide">
+<h2>3/8 — Path Compression: find vừa đi vừa nén</h2>
+<div class="sub">2 tối ưu bắt buộc, thiếu 1 là TLE</div>
+<p><code>find(u)</code>: nếu gốc thì trả về; không thì <code>parentOrSize[u] = find(parentOrSize[u])</code> — mọi nút trên đường đi trỏ thẳng về gốc.</p>
+<div class="formula">find(3) với 3→2→1: sau 1 lần gọi, 3 và 2 đều trỏ thẳng về 1. Lần sau O(1).</div>
+<ul><li><b>Union by Size:</b> cây nhỏ gắn dưới cây lớn → cao ≤ log n.</li>
+<li>Kết hợp: <code>O(α(n))</code> — α là Ackermann ngược, ≤ 4 với mọi n thực tế.</li></ul>
+<div class="warn">⛔ Quên Path Compression → cây dài → TLE. Quên Union by Size + find đệ quy sâu → Stack Overflow.</div>
+</section>
+<section class="slide">
+<h2>4/8 — Sparse Table: min đoạn tĩnh trong O(1)</h2>
+<div class="sub">st[j][i] = min đoạn [i, i+2<sup>j</sup>−1], a 0-based</div>
+<p>a = [3,1,4,1,5,9,2,6]. Tiền xử lý <code>O(n log n)</code>:</p>
+<table><tr><th>j (độ dài)</th><th>i=0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th></tr>
+<tr><td>0 (len 1)</td><td>3</td><td>1</td><td>4</td><td>1</td><td>5</td><td>9</td><td>2</td><td>6</td></tr>
+<tr><td>1 (len 2)</td><td>1</td><td>1</td><td>1</td><td>1</td><td>5</td><td>2</td><td>2</td><td>–</td></tr>
+<tr><td>2 (len 4)</td><td class="hl">1</td><td>1</td><td class="hl">1</td><td>1</td><td class="hl">2</td><td>–</td><td>–</td><td>–</td></tr></table>
+<div class="formula"><code>st[j][i] = min(st[j−1][i], st[j−1][i+2<sup>j−1</sup>])</code> — chẻ đôi đoạn dài.</div>
+</section>
+<section class="slide">
+<h2>5/8 — Query đè đoạn: 2 khối phủ kín [l,r]</h2>
+<div class="sub">Bấm Next: query(2,7) với len=6, k=2</div>
+<p>len = r−l+1, k = 31 − clz(len). Phủ [l,r] bằng <code>[l, l+2<sup>k</sup>−1]</code> và <code>[r−2<sup>k</sup>+1, r]</code>. Phần đè nhau không ảnh hưởng min.</p>
+<div class="grid8" id="d5"></div>
+<div class="cover" id="cov5">Bấm Next để xem 2 khối được chọn.</div>
+<div class="steps" id="cap5">query(2,7): len=6, k=2, khối dài 4.</div>
+<p><button data-next onclick="nextStep('s5')">Next bước</button> <button class="ghost" onclick="resetSteps('s5')">Chạy lại</button></p>
+<div class="tip">Vì sao không <code>log2()</code>? double chậm 30–50 chu kỳ + sai làm tròn. <code>__builtin_clz</code> đúng 1 chu kỳ CPU.</div>
+</section>
+<section class="slide">
+<h2>6/8 — Code chuẩn C++20</h2>
+<div class="sub">DSU 15 dòng + Sparse 20 dòng</div>
+<div class="code-header"><span>C++20 · DSU + SparseTable</span><button class="copy-btn" onclick="copyCode('code3',this)">📋 Sao chép mã C++</button></div><pre id="code3"><span class="type">int</span> <span class="fn">find</span>(<span class="type">int</span> u){ <span class="kw">return</span> p[u]&lt;<span class="num">0</span>?u:p[u]=<span class="fn">find</span>(p[u]); }
+<span class="type">bool</span> <span class="fn">unite</span>(<span class="type">int</span> u,<span class="type">int</span> v){ u=<span class="fn">find</span>(u);v=<span class="fn">find</span>(v);
+  <span class="kw">if</span>(u==v)<span class="kw">return false</span>;
+  <span class="kw">if</span>(p[u]&gt;p[v])<span class="fn">swap</span>(u,v); p[u]+=p[v]; p[v]=u; <span class="kw">return true</span>; }
+<span class="com">// Sparse: st[j][i]=min(st[j-1][i],st[j-1][i+(1&lt;&lt;(j-1))])</span>
+<span class="type">int</span> <span class="fn">query</span>(<span class="type">int</span> l,<span class="type">int</span> r){ <span class="type">int</span> j=<span class="num">31</span>-__builtin_clz(r-l+<span class="num">1</span>);
+  <span class="kw">return</span> <span class="fn">min</span>(st[j][l],st[j][r-(<span class="num">1</span>&lt;&lt;j)+<span class="num">1</span>]); }</pre>
+<div class="warn">⛔ Sparse Table <b>chỉ dùng cho phép idempotent</b> (min/max/gcd). Sum KHÔNG dùng được vì phần đè bị cộng 2 lần.</div>
+</section>
+<section class="slide">
+<h2>7/8 — Bẫy ICPC</h2>
+<div class="sub">Index + đệ quy + clz</div>
+<div class="two"><div><p><b>DSU (1-based):</b></p><ul>
+<li>Đề 0-based → +1 mọi index.</li>
+<li>find đệ quy: cây cao log n nên an toàn, nhưng quên Union by Size là nguy.</li></ul></div>
+<div><p><b>Sparse (0-based):</b></p><ul>
+<li><code>__builtin_clz(0)</code> là undefined — nhưng len ≥ 1 nên an toàn.</li>
+<li>Nhớ guard <code>i + (1&lt;&lt;j) &lt;= n</code> khi build.</li></ul></div></div>
+<div class="formula">📌 <b>Tóm tắt 30 giây:</b> DSU = 1 mảng âm/dương · find nén + gộp theo cỡ · Sparse = bảng lũy thừa 2 + query đè đoạn.</div>
+</section>
+<section class="slide">
+<h2>8/8 — Tự kiểm tra 3 câu</h2>
+<div class="sub">Đáp án đã kiểm chứng bằng code</div>
+<div class="quiz-card"><div class="quiz-q"><span>❓ <b>Câu 1:</b> DSU n=8, unite(1,2), unite(2,3), unite(3,4). parentOrSize[1] = ?</span><button class="btn-xs" onclick="toggleAns(1)">Xem đáp án</button></div><div class="quiz-ans" id="ans1">✅ <b>−4</b> — gốc của tập 4 phần tử {1,2,3,4}.</div></div><div class="quiz-card"><div class="quiz-q"><span>❓ <b>Câu 2:</b> a=[3,1,4,1,5,9,2,6]. st[2][2] = ?</span><button class="btn-xs" onclick="toggleAns(2)">Xem đáp án</button></div><div class="quiz-ans" id="ans2">✅ <b>1</b> — min(a[2..5]) = min(4,1,5,9) = 1.</div></div><div class="quiz-card"><div class="quiz-q"><span>❓ <b>Câu 3:</b> Vì sao Sparse Table không dùng cho sum?</span><button class="btn-xs" onclick="toggleAns(3)">Xem đáp án</button></div><div class="quiz-ans" id="ans3">✅ <b>sum không idempotent</b> — phần đè nhau bị cộng 2 lần, đáp án sai.</div></div>
+<div class="formula">🎯 <b>Bài tiếp theo (Bài 4):</b> Topo Sort + 0-1 BFS + Bellman-Ford + Floyd-Warshall.</div>
+</section><div class="nav">
+<button class="ghost" onclick="go(-1)">← Trước</button>
+<span id="idx">1 / 8</span>
+<button onclick="go(1)">Sau →</button>
+</div>
+</main>
+<script>let cur=0;
+const slides=[...document.querySelectorAll('.slide')];
+const progressBar=document.getElementById('progress-bar');
+function show(i){cur=(i+slides.length)%slides.length;slides.forEach((s,k)=>s.classList.toggle('active',k===cur));document.getElementById('idx').textContent=(cur+1)+' / '+slides.length;window.scrollTo(0,0);}
+function go(d){show(cur+d);}
+const audioEl=document.querySelector('audio');
+const chkAutoSync=document.getElementById('chkAutoSync');
+document.addEventListener('keydown',e=>{
+  if(e.target.tagName==='INPUT')return;
+  if(e.key==='ArrowRight')go(1);
+  if(e.key==='ArrowLeft')go(-1);
+  if(e.code==='Space'){e.preventDefault();if(audioEl)audioEl.paused?audioEl.play():audioEl.pause();}
+  if(e.key.toLowerCase()==='n'){const b=document.querySelector('.slide.active [data-next]');if(b)b.click();}
+});
+function setSpeed(rate){if(audioEl)audioEl.playbackRate=rate;document.querySelectorAll('.speed-group button').forEach(b=>b.classList.remove('active'));event.target.classList.add('active');}
+function toggleAns(i){const el=document.getElementById('ans'+i);if(el)el.classList.toggle('open');}
+function copyCode(id,btn){const pre=document.getElementById(id);const txt=pre?pre.innerText:'';const done=()=>{btn.textContent='✅ Đã sao chép!';setTimeout(()=>{btn.textContent='📋 Sao chép mã C++';},2000);};const fb=()=>{const ta=document.createElement('textarea');ta.value=txt;ta.style.position='fixed';ta.style.opacity='0';document.body.appendChild(ta);ta.select();try{if(document.execCommand('copy'))done();else alert('Trình duyệt chặn sao chép — hãy Ctrl+C thủ công.');}catch(e){alert('Trình duyệt chặn sao chép — hãy Ctrl+C thủ công.');}ta.remove();};if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(done).catch(fb);}else{fb();}}
+const slideStarts=/*__CUES__*/[0.00, 45.17, 92.59, 133.17, 190.99, 247.87, 289.68, 336.70];
+if(audioEl){audioEl.addEventListener('timeupdate',()=>{if(audioEl.duration&&progressBar){progressBar.style.width=((audioEl.currentTime/audioEl.duration)*100)+'%';}if(!chkAutoSync||!chkAutoSync.checked)return;const t=audioEl.currentTime;let target=0;for(let k=0;k<slideStarts.length;k++){if(t>=slideStarts[k])target=k;}if(target!==cur){show(target);}});}
+// Step engine: ST = {key:{steps:[{cap,run}], i, capId}}
+const ST={};
+function defSteps(key,capId,steps,startCap){ST[key]={steps:steps,i:0,capId:capId,startCap:startCap};}
+function nextStep(key){const S=ST[key];if(!S)return;if(S.i<S.steps.length){const st=S.steps[S.i++];try{st.run();}catch(e){}document.getElementById(S.capId).innerHTML=st.cap+(S.i>=S.steps.length?'<br>✅ <b>Xong.</b>':'');}}
+function resetSteps(key){const S=ST[key];if(!S)return;S.i=0;try{S.reset();}catch(e){}document.getElementById(S.capId).innerHTML=S.startCap;}
+// Bars: vals=[{v,l}], S={h:{idx:cls}}
+function drawBars(id,vals,S){const el=document.getElementById(id);if(!el)return;el.innerHTML='';S=S||{h:{}};vals.forEach((c,i)=>{const d=document.createElement('div');d.className='cell'+(S.h[i]?' '+S.h[i]:'');d.innerHTML='<div class="idx">'+(c.l||('['+(i+1)+']'))+'</div><div class="val">'+c.v+'</div>'+(c.n?'<div class="note">'+c.n+'</div>':'');el.appendChild(d);});}
+// Grid 4x4: rows=[[..]], S={h:{"r,c":cls}}
+function drawGrid(id,rows,S){const el=document.getElementById(id);if(!el)return;el.innerHTML='';S=S||{h:{}};const m=rows[0].length;el.style.display='grid';el.style.gridTemplateColumns='repeat('+m+',1fr)';el.style.gap='8px';el.style.margin='12px 0';rows.forEach((row,r)=>{row.forEach((v,c)=>{const d=document.createElement('div');const k=r+','+c;d.className='gcell'+(S.h[k]?' '+S.h[k]:'');d.textContent=v;el.appendChild(d);});});}
+// Net graph: N=[{id,x,y,l}], E=[{a,b,l}], S={hn:[],he:[],el:{},nl:{}}
+function drawNet(id,N,E,S){const el=document.getElementById(id);if(!el)return;S=S||{hn:[],he:[],el:{},nl:{}};let h='';E.forEach((e,i)=>{const A=N.find(n=>n.id===e.a),B=N.find(n=>n.id===e.b);const hi=S.he.indexOf(i)>=0;const col=hi?'#f59e0b':'#475569';const lbl=(i in S.el)?S.el[i]:(e.l||'');h+='<line x1="'+A.x+'" y1="'+A.y+'" x2="'+B.x+'" y2="'+B.y+'" stroke="'+col+'" stroke-width="'+(hi?3:2)+'"/>';if(lbl){h+='<text x="'+((A.x+B.x)/2)+'" y="'+((A.y+B.y)/2-6)+'" fill="'+(hi?'#fbbf24':'#94a3b8')+'" font-size="12" text-anchor="middle" font-weight="bold">'+lbl+'</text>';}});N.forEach(n=>{const hi=S.hn.indexOf(n.id)>=0;h+='<circle cx="'+n.x+'" cy="'+n.y+'" r="20" fill="'+(hi?'#f59e0b':'#0ea5e9')+'"/>';h+='<text x="'+n.x+'" y="'+(n.y+5)+'" fill="#02131f" font-size="14" text-anchor="middle" font-weight="bold">'+((n.id in S.nl)?S.nl[n.id]:n.l)+'</text>';});el.innerHTML=h;}
+
+drawBars('d1',[{v:-1,l:'1'},{v:-1,l:'2'},{v:-1,l:'3'},{v:-1,l:'4'},{v:-1,l:'5'},{v:-1,l:'6'},{v:-1,l:'7'},{v:-1,l:'8'}]);
+drawBars('d2',[{v:-1,l:'1'},{v:-1,l:'2'},{v:-1,l:'3'},{v:-1,l:'4'},{v:-1,l:'5'},{v:-1,l:'6'},{v:-1,l:'7'},{v:-1,l:'8'}]);
+drawBars('d5',[{v:3,l:'a0'},{v:1,l:'a1'},{v:4,l:'a2'},{v:1,l:'a3'},{v:5,l:'a4'},{v:9,l:'a5'},{v:2,l:'a6'},{v:6,l:'a7'}]);
+defSteps('s2','cap2',[
+ {cap:'<b>Bước 1:</b> unite(1,2): hai gốc cỡ 1 → gắn 2 dưới 1. p[1]=−2, p[2]=1.',run:()=>{drawBars('d2',[{v:-2,l:'1'},{v:1,l:'2'},{v:-1,l:'3'},{v:-1,l:'4'},{v:-1,l:'5'},{v:-1,l:'6'},{v:-1,l:'7'},{v:-1,l:'8'}],{h:{0:'hit',1:'hit'}});document.getElementById('cov2').innerHTML='p[1]=<b>−2</b>, p[2]=1.';}},
+ {cap:'<b>Bước 2:</b> unite(2,3): find(2)=1 (nén luôn), gộp 3 vào 1. p[1]=−3, p[3]=1.',run:()=>{drawBars('d2',[{v:-3,l:'1'},{v:1,l:'2'},{v:1,l:'3'},{v:-1,l:'4'},{v:-1,l:'5'},{v:-1,l:'6'},{v:-1,l:'7'},{v:-1,l:'8'}],{h:{0:'hit',1:'hit2',2:'hit'}});document.getElementById('cov2').innerHTML='Tập {1,2,3} gốc 1. size(2) = <b>3</b>.';}}
+],'unite(1,2): hai gốc cỡ 1 → gắn 2 dưới 1.');
+ST['s2'].reset=()=>{drawBars('d2',[{v:-1,l:'1'},{v:-1,l:'2'},{v:-1,l:'3'},{v:-1,l:'4'},{v:-1,l:'5'},{v:-1,l:'6'},{v:-1,l:'7'},{v:-1,l:'8'}]);document.getElementById('cov2').innerHTML='Bấm Next để gộp từng cặp.';};
+defSteps('s5','cap5',[
+ {cap:'<b>Bước 1:</b> Khối 1: st[2][2] = min(a[2..5]) = min(4,1,5,9) = <b>1</b>.',run:()=>{drawBars('d5',[{v:3,l:'a0'},{v:1,l:'a1'},{v:4,l:'a2'},{v:1,l:'a3'},{v:5,l:'a4'},{v:9,l:'a5'},{v:2,l:'a6'},{v:6,l:'a7'}],{h:{2:'hit',3:'hit',4:'hit',5:'hit'}});document.getElementById('cov5').innerHTML='Khối [2..5] → <b>1</b>.';}},
+ {cap:'<b>Bước 2:</b> Khối 2: st[2][4] = min(a[4..7]) = min(5,9,2,6) = <b>2</b>. Đáp án min(1,2) = <b>1</b>.',run:()=>{drawBars('d5',[{v:3,l:'a0'},{v:1,l:'a1'},{v:4,l:'a2'},{v:1,l:'a3'},{v:5,l:'a4'},{v:9,l:'a5'},{v:2,l:'a6'},{v:6,l:'a7'}],{h:{2:'hit',3:'hit',4:'hit2',5:'hit2',6:'hit2',7:'hit2'}});document.getElementById('cov5').innerHTML='Khối [4..7] → <b>2</b>. min chung = <b>1</b> ✓.';}}
+],'query(2,7): len=6, k=2, khối dài 4.');
+ST['s5'].reset=()=>{drawBars('d5',[{v:3,l:'a0'},{v:1,l:'a1'},{v:4,l:'a2'},{v:1,l:'a3'},{v:5,l:'a4'},{v:9,l:'a5'},{v:2,l:'a6'},{v:6,l:'a7'}]);document.getElementById('cov5').innerHTML='Bấm Next để xem 2 khối được chọn.';};
+
+</script>
+</body>
+</html>

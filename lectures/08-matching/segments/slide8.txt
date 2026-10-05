@@ -1,0 +1,5 @@
+Phần 8. Tự kiểm tra 3 câu.
+Câu 1: BFS Hopcroft-Karp: dist[0] = ? ý nghĩa? Đáp: khoảng cách đến NIL (đỉnh ảo đích). dist[0]!=INF ⇔ tồn tại đường mở.
+Câu 2: DFS: điều kiện if (dist[pairV[v]] == dist[u]+1) ý nghĩa? Đáp: chỉ đi theo đường mở NGẮN NHẤT do BFS tìm được.
+Câu 3: Min Vertex Cover: đỉnh trái chưa ghép BFS qua cạnh chưa ghép sang phải, cạnh đã ghép về trái. Tập cover = ? Đáp: trái KHÔNG đạt + phải ĐẠT.
+Hẹn bài 9: Hình học — CCW, giao đoạn, điểm trong đa giác.

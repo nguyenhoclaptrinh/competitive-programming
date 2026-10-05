@@ -1,0 +1,6 @@
+Phần 1. Manacher — Tìm mọi palindrome O(N).
+Xâu s độ dài n. Palindrome lẻ (aba) và chẵn (abba) khác tâm.
+Kỹ thuật: Chèn # giữa mọi ký tự + ^ $ hai đầu.
+s = "abba" → t = "^#a#b#b#a#$". Mọi palindrome thành độ dài LẺ trên t. Tâm tại ký tự (lẻ) hoặc # (chẵn).
+P[i] = bán kính palindrome tâm tại i trên t. Độ dài thực = P[i].
+Ví dụ: t[5] = b (tâm "abba"), P[5] = 4 → độ dài 4.

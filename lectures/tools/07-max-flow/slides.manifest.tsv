@@ -1,0 +1,9 @@
+slide	duration	title	sub	desc	type	content
+1	30.00	Bài 6: Dinic Max Flow — BFS tầng + DFS chặn	1/8 · Level Graph + ptr, ví dụ maxflow 17	s=1,t=4, 5 cạnh		
+2	30.00	BFS dựng level: 1→0, 2,3→1, 4→2	2/8 · chỉ cạnh còn dư, level[t]≠-1 là có đường	Mở slides.html Slide 2, bấm Next		
+3	30.00	DFS đẩy 8 rồi 9, ptr tham chiếu giữ vị trí	3/8 · cạnh bão hòa bỏ luôn	Mở slides.html Slide 3, bấm Next		
+4	30.00	Vòng 2 dừng, min cut {1,2,3}|{4}=17	4/8 · maxflow = mincut	8+9=17 khớp định lý		vòng2 dừng // mincut 8+9 // flow=mincut
+5	30.00	Code Dinic: Edge+rev, bfs, dfs, maxFlow	5/8 · cạnh ngược cap 0, long long	Tóm tắt 30 giây cuối slide		Edge rev // bfs tầng // dfs chặn // ptr &
+6	30.00	Min cut BFS thặng dư + rút matching về flow	6/8 · unit network O(E√V)	Ứng dụng chọn dự án, ảnh		BFS thặng dư // S-T cut // unit O(E√V)
+7	30.00	Bẫy: ptr&, cạnh ngược, đệ quy sâu, INF 1e18	7/8 · thiếu & là TLE chắc	4 bẫy sống còn		ptr & bắt buộc // rev tự đúng // INF 1e18
+8	30.00	Quiz: maxflow 6; ptr giữ vị trí; BFS thặng dư	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: Hopcroft-Karp		flow 6 // ptr vị trí // cut BFS

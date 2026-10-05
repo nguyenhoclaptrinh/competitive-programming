@@ -1,0 +1,4 @@
+Phần 7. Ứng dụng: Diện tích đa giác, tâm, khoảng cách.
+Diện tích đa giác: 0.5 * |sum cross(p[i], p[i+1])|. Shoelace formula. Dùng long long, chia 2 cuối cùng.
+Khoảng cách điểm đến đoạn: chiếu vuông góc. Nếu chiếu nằm trên đoạn → khoảng cách vuông góc. Ngay → min(dist đến A, dist đến B).
+Tâm đường tròn ngoại tiếp 3 điểm: giao đường trung trực. Dùng cross chia.

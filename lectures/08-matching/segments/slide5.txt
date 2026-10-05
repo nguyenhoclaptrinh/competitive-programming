@@ -1,0 +1,6 @@
+Phần 5. Code C++20 Hopcroft-Karp.
+struct HopcroftKarp {int n,m; vector<vector<int>> adj; vector<int> pairU,pairV,dist;};
+addEdge(u,v): adj[u].push_back(v).
+bfs(): queue. dist.assign(n+1,INF). for u=1..n if pairU[u]==0 dist[u]=0,q.push(u); dist[0]=INF. while q: u=pop; if dist[u]<dist[0] for v:adj[u] if dist[pairV[v]]==INF dist[pairV[v]]=dist[u]+1,q.push(pairV[v]); return dist[0]!=INF.
+dfs(u): if u!=0 for v:adj[u] if dist[pairV[v]]==dist[u]+1 && dfs(pairV[v]) pairV[v]=u,pairU[u]=v,return true; dist[u]=INF; return false.
+maxMatching(): matching=0; while(bfs()) for u=1..n if pairU[u]==0 && dfs(u)) matching++; return matching.

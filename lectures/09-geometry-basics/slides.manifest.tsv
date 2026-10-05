@@ -1,0 +1,9 @@
+slide	duration	title	sub	desc	type	content
+1	30.00	Bài 8: Hình học — CCW, giao đoạn, điểm trong đa giác	1/8 · ccw dấu cho hướng, long long	Ví dụ ccw=1 rẽ trái		
+2	30.00	Giao 2 đoạn: 2 phía 2 chiều + suy biến onSegment	2/8 · 4 ccw + 4 check biên	Thiếu 1 là sai		2 phía 2 chiều // suy biến biên // box bao
+3	30.00	Ray casting: lẻ trong chẵn ngoài, nửa mở nửa đóng	3/8 · tia qua đỉnh không đếm 2	onSegment trả BIÊN ngay		lẻ TRONG chẵn NGOÀI // nửa mở // BIÊN ngay
+4	30.00	Ví dụ số: 4 ccw ±16, giao (2,2); ray 3 điểm	4/8 · tính tay từng ccw	Mở slides.html Slide 4, bấm Next		
+5	30.00	Code Point/ccw/onSegment/intersect/pip	5/8 · long long hết	Tóm tắt 30 giây cuối slide		Point ll // ccw cross // giao+pip
+6	30.00	Bẫy: tràn int, cấm double, thẳng hàng, hướng	6/8 · cross 1e18	4 bẫy sống còn		ll bắt buộc // cấm double // biên box
+7	30.00	Ứng dụng: Shoelace, điểm-đoạn, ngoại tiếp	7/8 · giữ ll chia 2 cuối	3 ứng dụng		Shoelace // chiếu // ngoại tiếp
+8	30.00	Quiz: ccw=1; giao (1,1); P trong	8/8 · đáp án kiểm chứng bằng code	Tiếp theo: Bao lồi		ccw 1 // giao 11 // P TRONG

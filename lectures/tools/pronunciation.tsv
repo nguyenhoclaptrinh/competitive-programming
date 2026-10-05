@@ -1,0 +1,109 @@
+# Từ điển phiên âm TTS (tiếng Việt). Mỗi dòng: nguồn<TAB>cách đọc.
+# Áp dụng theo đúng thứ tự từ trên xuống. Dòng bắt đầu bằng re: là regex.
+# Dùng cho bước tiền xử lý narration -> text sạch cho Edge-TTS.
+O(log n)	O log n
+O(log N)	O log N
+O(n)	O n
+O(N)	O N
+O(1)	O 1
+p += p & -p	p cộng bằng p và trừ p
+p -= p & -p	p trừ bằng p và trừ p
+p & -p	p và trừ p
+LSB	L S B
+BIT	B I T
+ICPC	I C P C
+TLE	T L E
+DSU	D S U
+LCA	L C A
+BFS	B F S
+DFS	D F S
+C++	C cộng cộng
+1-based	1 based
+0-based	0 based
+→	thành
+−	trừ
+×	nhân
+≈	khoảng
+re:\btree\[(\d+)\]	tree \1
+re:\ba\[(\d+)\]	a \1
+2-SAT	hai S A T
+DAG	D A G
+INF	I N F
+deque	đéc
+__builtin_clz	builtin c l z
+sqrt	căn bậc hai
+pairU	pair U
+pairV	pair V
+0-1 BFS	không một B F S
+# Range BIT / BIT 2D
+RangeBIT	Range B I T
+Fenwick2D	Fenwick 2 D
+mảng sai phân	mảng sai phân
+D[j]	D j
+j * D[j]	j nhân D j
+# DSU / Sparse Table
+parentOrSize	parent hoặc size
+alpha(n)	alpha n
+Ackermann	Ackermann
+clz	clz
+log2	log 2
+RMQ	R M Q
+idempotent	aýpôten
+# Graph
+Topo	Topo
+Kahn	Kahn
+inDegree	in degree
+Bellman-Ford	Bellman Phốt
+Floyd-Warshall	Phlôi-uao
+deque	đéc
+priority_queue	priority queue
+# LCA / 2-SAT
+binary lifting	binary lifting
+SCC	S C C
+Tarjan	Tarjan
+low-link	low link
+dfn	d f n
+inStack	in stack
+implication graph	implication graph
+# Max Flow / Matching
+Dinic	Đi-níc
+Level Graph	Level Graph
+Blocking Flow	Blocking Flow
+ptr	con trỏ
+Hopcroft-Karp	Hopcroft Carp
+Augmenting Path	Augmenting Path
+NIL	N I L
+Kőnig	Koe-nig
+Min Vertex Cover	Min Vertex Cover
+# Geometry
+CCW	C C W
+cross product	cross product
+dot product	dot product
+onSegment	on segment
+bounding box	bounding box
+Ray Casting	Ray Casting
+Shoelace	Shoelace
+Monotone Chain	Monotone Chain
+Rotating Calipers	Rotating Calipers
+collinear	collinear
+# String
+Manacher	Manacher
+Aho-Corasick	Aho Co-ra-sick
+Trie	Trie
+Failure link	Failure link
+DFA	D F A
+exitLink	exit link
+# Math
+CRT	C R T
+Extended GCD	Extended G C D
+Diophantine	Di-o-pha-tin
+lcm	l c m
+Pollard Rho	Pollard Rho
+Miller-Rabin	Mi-lơ Ra-bin
+u128	u 1 2 8
+mulMod	mul mod
+powMod	pow mod
+modInverse	mod inverse
+Lucas	Lúcas
+Euler totient	Oa-lơ totient
+fast doubling	fast doubling

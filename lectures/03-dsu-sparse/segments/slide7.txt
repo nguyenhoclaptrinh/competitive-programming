@@ -1,0 +1,4 @@
+Phần 7. Bẫy ICPC: DSU 1-based, Sparse Table 0-based.
+DSU: chỉ số 1..n. Nếu đề 0-based → +1. find đệ quy có thể Stack Overflow nếu n=3e5 đường thẳng — cần đệ quy đuôi hoặc loop (trong C++ đệ quy limit cao, thường OK, nhưng Python thì không).
+Sparse Table: mảng a 0-based. query(l,r) l,r 0-based. k = 31 - __builtin_clz(r-l+1).
+Bẫy sum: Sparse Table không làm được sum vì sum không idempotent (min(min(x,x),x) = x nhưng sum(x,x) ≠ sum(x)).
